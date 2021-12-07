@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="./images/favicons/android-chrome-512x512.png"
+      type="image/x-icon"
+    />
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <title>Mon Agence</title>
+  </head>
+  <body>
+    <!-- <div class="preloader d-flex" id="loading">
+      <img src="./images/loader.gif" alt="" />
+    </div> -->
+    <div class="app">
+      <!-- Navigation -->
+      <header class="header" id="header">
+        <nav class="navigation-promote container d-flex">
+           <div class="nav-icon">
+              <a href="/#/contact">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: white; transform: ; msfilter: "
+                >
+                  <path
+                    d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
+                  ></path>
+                </svg>
+              </a>
+
+              <a href="/#/phone"></a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: white; transform: ; msfilter: "
+                >
+                  <path
+                    d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"
+                  ></path>
+                </svg>
+              </a>
+
+            </div>
+
+          <ul class="promote-list show d-flex">
+            <li><a href="/#/home">Vente Flash</a></li>
+            <li><a href="/#/about">Dernière Minute</a></li>
+            <li><a href="/#/contact">All Inclusive</a></li>
+            <li><a href="/#/contact">Promotion</a></li>
+          </ul>
+          <div class="hamburger"><i class="bx bx-menu-alt-right"></i></div>
+        </nav>
+        <nav class="navigation container d-flex">
+          <!-- /images/logoMonAgenceMb.png -->
+          <ul class="nav-list d-flex">
+            <li>
+              <a href="/#/home" class="logo">
+                <img src="./images/logo_monagence.png" alt="logo" />
+              </a>
+            </li>
+            <li>
+              <a href="/#/home">
+                <span class="phone">Besoin d'aide ! </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: #06526e; transform: ; msfilter: "
+                >
+                  <path
+                    d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"
+                  ></path>
+                </svg>
+                <span class="text-phone"> 01 73 323 323</span>
+              </a>
+              <br />
+              <span class="calender-phone">
+                Lun-sam: 8h-22h - dim: 10h-19h - Numéro non surtaxé
+              </span>
+            </li>
+
+            <li>
+              <a href="/#/about">
+                <SiMailDotRu color="#06526e" fontSize="1.1rem" />
+                <br />
+                PAR EMAIL
+              </a>
+            </li>
+            <li>
+              <a href="/#/contact">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: #06526e; transform: ; msfilter: "
+                >
+                  <path
+                    d="M20.205 4.791a5.938 5.938 0 0 0-4.209-1.754A5.906 5.906 0 0 0 12 4.595a5.904 5.904 0 0 0-3.996-1.558 5.942 5.942 0 0 0-4.213 1.758c-2.353 2.363-2.352 6.059.002 8.412L12 21.414l8.207-8.207c2.354-2.353 2.355-6.049-.002-8.416z"
+                  ></path>
+                </svg>
+
+                <br />
+                MA SELECTION
+              </a>
+            </li>
+            <li>
+              <a href="/#/contact">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: #06526e; transform: ; msfilter: "
+                >
+                  <path
+                    d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
+                  ></path>
+                </svg>
+                <br />
+                MON COMPTE
+              </a>
+            </li>
+          </ul>
+
+          <div class="logo_small">
+            <img src="./images/logoMonAgenceMb.png" alt="logo" />
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="hero-container">
+          <div class="hero-text">
+            <img src="images/voyage-circuit-combines.jpg" alt="home" />
+          </div>
+        </div>
+        <!-- Vente flash -->
+        <div class="h2 d-flex">
+          <h2>Vente flash de la semaine</h2>
+          <p>
+            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
+            jours,
+          </p>
+          <p>
+            des offres tous compris à prix mini et des promotions exeptionnelles
+          </p>
+        </div>
+        <!-- cards -->
+        <div class="content" id="content">
+          <div class="blog-layout container">
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+
+            <!-- <div class="blog">
+              <div class="blog-img">
+                <a href="/#/"><img src="./images/blog-1.svg" alt="" /></a>
+              </div>
+              <div class="blog-text">
+                <h2>
+                  <a href="/#/"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing.</a
+                  >
+                </h2>
+                <div class="d-flex">
+                  <div class="category">App Design</div>
+                  <div class="date">26th August 2021</div>
+                </div>
+                <div class="author d-flex">
+                  <div class="author-image">
+                    <img src="./images/profile-9.png" alt="" />
+                  </div>
+                  <div class="author-name">Kelvin</div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="blog">
+              <div class="blog-img">
+                <a href="/#/"><img src="./images/blog-2.svg" alt="" /></a>
+              </div>
+              <div class="blog-text">
+                <h2>
+                  <a href="/#/"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing.</a
+                  >
+                </h2>
+                <div class="d-flex">
+                  <div class="category">App Design</div>
+                  <div class="date">26th August 2021</div>
+                </div>
+                <div class="author d-flex">
+                  <div class="author-image">
+                    <img src="./images/profile-9.png" alt="" />
+                  </div>
+                  <div class="author-name">Kelvin</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog">
+              <div class="blog-img">
+                <a href="/#/"><img src="./images/blog-3.svg" alt="" /></a>
+              </div>
+              <div class="blog-text">
+                <h2>
+                  <a href="/#/"
+                    >Lorem ipsum dolor sit amet consectetur adipisicing.</a
+                  >
+                </h2>
+                <div class="d-flex">
+                  <div class="category">App Design</div>
+                  <div class="date">26th August 2021</div>
+                </div>
+                <div class="author d-flex">
+                  <div class="author-image">
+                    <img src="./images/profile-9.png" alt="" />
+                  </div>
+                  <div class="author-name">Kelvin</div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- All inclusive -->
+        <div class="h2 d-flex">
+          <h2>Voyage all inclusive</h2>
+          <p>
+            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
+            jours,
+          </p>
+          <p>
+            des offres tous compris à prix mini et des promotions exeptionnelles
+          </p>
+        </div>
+        <!-- cards -->
+        <div class="content" id="content">
+          <div class="blog-layout container">
+            <div class="card">
+              <img src="images/voyages/beach.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyages/drink.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyages/women-beach.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyages/beach.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promotion -->
+        <div class="h2 d-flex">
+          <h2>Promotion de voyage</h2>
+          <p>
+            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
+            jours,
+          </p>
+          <p>
+            des offres tous compris à prix mini et des promotions exeptionnelles
+          </p>
+        </div>
+        <!-- cards -->
+        <div class="content" id="content">
+          <div class="blog-layout container">
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="images/voyage-circuit-combines.jpg" alt="home" />
+              <div class="travelList">
+                <h5>{title}</h5>
+                <h5>{/* {stars} */}In Travel List.js</h5>
+                <p class="price">{prixAvecPromos} €</p>
+                <p class="voir_offre">
+                  Voir l'offre {/* {titre2} {prix} */}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+      <footer id="footer" class="footer">
+        <div class="layout d-flex">
+          <p>Copyright &copy; 2021</p>
+          <div class="social">
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Script -->
+    <script src="./main.js"></script>
+
+    <!-- <script src="bundle.js"></script> -->
+  </body>
+</html>
