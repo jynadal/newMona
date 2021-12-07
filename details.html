@@ -94,81 +94,40 @@
     </section>
     <!-- Main Beggin -->
     <main>
-        <div class="hero-container">
-            <img src="images/voyages/beach.jpg" alt="home" />
-        </div>
-
-        <!-- All inclusive -->
-        <div class="h2">
-          <h2>Voyage all inclusive</h2>
-          <p>
-            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
-            jours,
-          </p>
-          <p>
-            des offres tous compris à prix mini et des promotions exeptionnelles
-          </p>
-        </div>
-        <!-- cards -->
-          <div  id="detail" class="card2-layout container">
-
-            <!-- <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg " alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
+        <!-- Detail Container -->
+          <div  id="detail" class="detail-container">
+            <div class="h1">
+            <h1>Titre</h1>
             </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
+            <div class="content">
+              <div class="slider">
+                <img src="images/voyage-circuit-combines.jpg " alt="slider" />
               </div>
-            </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
+              <div class="description">
+                <p class="descrip">Description</p>
+                <h3>Titre</h3>
+                <h4>Titre2</h4>
+                <br />
+                <p>contenue</p>
+                <p>Catégorie</p>
+                <p>Avantage</p>
               </div>
-            </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div> -->
+            </div>       
           </div>
        
-        <section class="promotion">
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
+        <section id="promos" class="promo">
+          <div class="reduction">
+            <p>Pourcentage</p>
+            <p>PrixBarré</p>
+          </div>
+           <div class="price">
+            <p>Pourcentage</p>
+            <a href="">
+              <div class="disponibilites">
+                <p>Voir les disponibilités </p>
+              </div>
+            </a>
+          </div>
         </section>
     </main>
     <!-- Main End -->
@@ -290,7 +249,7 @@
 
 client
   .getEntries({
-    content_type: 'voyages',
+    content_type: 'all_include',
   })
   .then(function (entries) {
     entries.items.forEach(function (entry) {
@@ -302,6 +261,17 @@ client
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
+
+        function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
+
+      var url = window.location.search()
+      console.log(url)
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
       jQuery('#detail').append('<div class="card2"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');

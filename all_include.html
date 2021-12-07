@@ -293,15 +293,16 @@ client
     content_type: 'voyages',
   })
   .then(function (entries) {
-    entries.items.forEach(function (entry) {
+    entries.items.forEach(function (entry, index) {
       var category = entry.fields.categorie;
       console.log(JSON.stringify(entry.fields));
       console.log(entry.fields)
+      console.log(index)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+      // console.log(etoile)
 
         function nbrEtoile(etoile) {
         if (etoile == 5) {
@@ -319,8 +320,16 @@ client
         return  "*"
       }
 
+      function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
+
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#all_include').append('<div class="card2"><a href="+name+"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#all_include').append('<div class="card2"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
 
       
       
