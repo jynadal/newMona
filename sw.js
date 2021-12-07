@@ -1,4 +1,4 @@
-var CACHE_NAME = "mon_agence_v3";
+var CACHE_NAME = "mon_agence_v2";
 var urlsCache = ["/", "/index.html", "/styles.css", "/main.js"];
 
 self.addEventListener("install", function (e) {

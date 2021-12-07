@@ -108,28 +108,34 @@
                 <h3>Titre</h3>
                 <h4>Titre2</h4>
                 <br />
-                <p>contenue</p>
-                <p>Catégorie</p>
-                <p>Avantage</p>
+                <p class="contenu">contenue</p>
+                <p class="categorie">Catégorie</p>
+                <p class="avantages">Avantage</p>
               </div>
             </div>       
           </div>
        
-        <section id="promos" class="promo">
+        <div id="promos" class="price-promo">
           <div class="reduction">
-            <p>Pourcentage</p>
-            <p>PrixBarré</p>
+            <p>- 50%</p>
+            <p>768 €</p>
           </div>
-           <div class="price">
-            <p>Pourcentage</p>
+           <div class="price-resa">
+            <p class="price">259 €</p>
             <a href="">
-              <div class="disponibilites">
+              <div class="resa">
                 <p>Voir les disponibilités </p>
               </div>
             </a>
           </div>
-        </section>
+        </div>
+        <section class="infos"> 
+      Besoin de plus d'information !
+      <br />
+      Contactez-nous: 01 73 323 323
+      </section>
     </main>
+
     <!-- Main End -->
 
     <!-- <div class="nav-container">
@@ -270,8 +276,22 @@ client
             ;
       }
 
+      // function getParameterByName(nama) {
+      //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
+      //   var regexS = [?&] + name + =([^&#]*);
+      //   var regex = new RegExp(regexS);
+      //   var results = regex.exec(window.location.search);
+      //   if (results == null)
+      //   return ;
+      //   else
+      //   return decodeURIComponent(results[1].replace(/+/g, ));
+      // }
+
       var url = window.location.search()
       console.log(url)
+
+       var url2 = location.search()
+      console.log(url2)
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
       jQuery('#detail').append('<div class="card2"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');
