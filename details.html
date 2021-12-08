@@ -294,7 +294,7 @@ client
       console.log(url2)
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#detail').append('<div class="card2"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');
+      jQuery('#detail').append('<div class="card2"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });

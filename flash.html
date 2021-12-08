@@ -313,8 +313,33 @@ client
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
 
+
+        function nbrEtoile(etoile) {
+        if (etoile == 5) {
+          return "* * * * *"
+        }
+           if (etoile == 4) {
+          return "* * * *"
+        }
+        if (etoile == 3) {
+          return "* * *"
+        }
+           if (etoile == 2) {
+          return "* *"
+        } else 
+        return  "*"
+      }
+
+      function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
+
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#flash_container').append('<div class="card2"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');
+      jQuery('#flash_container').append('<div class="card2"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
 
       
       
