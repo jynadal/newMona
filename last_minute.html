@@ -112,17 +112,6 @@
         <!-- cards -->
           <div  id="last_minute" class="card2-layout container">
 
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg " alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div>
           </div>
        
         <section class="promotion">
@@ -218,8 +207,9 @@ client
   .then(function (entries) {
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
-      // console.log(JSON.stringify(entry.fields.categorie));
+      console.log(JSON.stringify(entry.fields.categorie));
       console.log(entry.fields)
+       console.log(category)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;

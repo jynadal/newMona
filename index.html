@@ -269,14 +269,26 @@
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
 
+// client
+//   .getEntries({
+//     //'fields.categorie': 'promotion',
+//     content_type: 'voyages',
+//   })
+//   .then(function (entries) {
+//      console.log(JSON.stringify(entries));
+//     entries.items.forEach(function (entry) {
+//       console.log(JSON.stringify(entry.fields.categorie));
+
 client
   .getEntries({
     content_type: 'voyages',
+    'fields.categorie': 'promotion',
   })
   .then(function (entries) {
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
-      // console.log(JSON.stringify(entry.fields.categorie));
+      console.log(JSON.stringify(entry.fields.categorie));
+    
       console.log(entry.fields)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
@@ -335,12 +347,12 @@ client
 
   // client
   // .getEntries({
-  //   'fields.categorie[e]': 'promotion',
+  //   'fields.categorie': 'promotion',
   // //   content_type: '<product_content_type_id>',
   // })
   // .then(function (entries) {
   //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry.fields.sku));
+  //     console.log(JSON.stringify(entry.fields.category));
   //   });
   // });
      </script>

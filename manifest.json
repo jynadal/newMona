@@ -1,7 +1,7 @@
 {
   "name": "Mon Agence, Ne rêvez plus, voyagez!",
   "short_name": "Mon Agence",
-  "start_url": "/index.html",
+  "start_url": "./?utm_source=web_app_manifest",
   "description": "Ne rêvez plus, voyagez avec votre agence de voyage.",
   "lang": "fr",
   "background_color": "#4d4d4d",
@@ -13,8 +13,7 @@
     {
       "src": "images/favicons/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "images/favicons/apple-touch-icon.png",
@@ -52,7 +51,7 @@
   "related_applications": [
     {
       "platform": "web",
-      "url": "https://monav4.netlify.app/"
+      "url": "https://monav4.netlify.app"
     }
   ],
   "crossOrigin": "use-credentials"
