@@ -112,111 +112,14 @@
         <!-- cards -->
           <div  id="promotion" class="card2-layout container">
 
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg " alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div>
-            <div class="card2">
-              <img src="images/voyage-circuit-combines.jpg" alt="home" />
-              <div class="travelList">
-                <h5>{title}</h5>
-                <h5>{/* {stars} */}In Travel List.js</h5>
-                <p class="price">{prixAvecPromos} €</p>
-                <p class="voir_offre">
-                  Voir l'offre {/* {titre2} {prix} */}
-                </p>
-              </div>
-            </div>
           </div>
        
-        <section class="promotion">
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
+        <section id="promotion-btn">
+            
         </section>
     </main>
     <!-- Main End -->
 
-    <!-- <div class="nav-container">
-        <div class="navbar">
-            <div class="navbar-icons">
-                <a href="/#/contact">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  style="fill: white; transform: ; msfilter: "
-                >
-                  <path
-                    d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
-                  ></path>
-                </svg>
-              </a>
-
-              <a href="/#/phone"></a>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  style="fill: white; transform: ; msfilter: "
-                >
-                  <path
-                    d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-links">Vente Flash</a></li>
-                <li><a href="#" class="nav-links">Dernière Minute</a></li>
-                <li><a href="#" class="nav-links">All Inclusive</a></li>
-                <li><a href="#" class="nav-links">Promotion</a></li>
-            </ul>
-        </div>
-    </div> -->
     <footer id="footer">
         <div class="footer-container">
           <ul>
@@ -288,14 +191,41 @@
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
 
+
+      function nbrEtoile(etoile) {
+        if (etoile == 5) {
+          return "* * * * *"
+        }
+           if (etoile == 4) {
+          return "* * * *"
+        }
+        if (etoile == 3) {
+          return "* * *"
+        }
+           if (etoile == 2) {
+          return "* *"
+        } else 
+        return  "*"
+      }
+
+      function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
+
 client
   .getEntries({
     content_type: 'voyages',
+    'fields.categorie': 'promotion',
   })
   .then(function (entries) {
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
-      // console.log(JSON.stringify(entry.fields.categorie));
+      console.log(JSON.stringify(entry.fields.categorie));
+    
       console.log(entry.fields)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
@@ -303,35 +233,38 @@ client
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
 
-      // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#promotion').append('<div class="card"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');
 
+      // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
+      jQuery('#promotion').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
-      
+       // Btn Promotion
+      jQuery('#promotion-btn').append('<div><a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a></div>');
       // return documentToHtmlString( description);
     });
   });
 
-  // client
+  //  // promotion
+  //   client
   // .getEntries({
-  //   content_type: 'promotion',
-  //   // 'fields.slug[in]': 'promotion',
+  //   content_type: 'voyages',
+  //   'fields.categorie': 'promotion',
   // })
   // .then(function (entries) {
-  //   console.log(JSON.stringify(entries));
   //   entries.items.forEach(function (entry) {
-  //     // console.log(JSON.stringify(entry.fields.categorie));
-  //   });
-  // });
+  //     var category = entry.fields.categorie;
+  //     console.log(JSON.stringify(entry.fields.categorie));
+    
+  //     console.log(entry.fields)
+  //     var title = entry.fields.title;
+  //     var etoile = entry.fields.etoile;
+  //     var prixAvecPromos = entry.fields.prixAvecPromos;
+  //     var image = entry.fields.image.fields.file.url;
+  //     console.log(etoile)
 
-  // client
-  // .getEntries({
-  //   'fields.categorie[in]': 'promotion',
-  // //   content_type: '<product_content_type_id>',
-  // })
-  // .then(function (entries) {
-  //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry));
+  //     // Btn Promotion
+  //     jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a>');
+      
+  //     // return documentToHtmlString( description);
   //   });
   // });
 

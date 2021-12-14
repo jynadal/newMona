@@ -114,17 +114,8 @@
 
           </div>
        
-        <section class="promotion">
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
+        <section id="promotion-btn">
+            
         </section>
     </main>
     <!-- Main End -->
@@ -200,53 +191,78 @@
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
 
+function nbrEtoile(etoile) {
+  if (etoile == 5) {
+    return "* * * * *"
+  }
+    if (etoile == 4) {
+    return "* * * *"
+  }
+  if (etoile == 3) {
+    return "* * *"
+  }
+    if (etoile == 2) {
+    return "* *"
+  } else 
+  return  "*"
+}
+
+function convertToSlug(Text) {
+  return Text
+      .toLowerCase()
+      .replace(/ /g,'_')
+      .replace(/[^\w-]+/g,'')
+      ;
+}
+
 client
   .getEntries({
     content_type: 'voyages',
+    'fields.categorie': 'last_minute',
   })
   .then(function (entries) {
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
       console.log(JSON.stringify(entry.fields.categorie));
+    
       console.log(entry.fields)
-       console.log(category)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
 
-      // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#last_minute').append('<div class="card"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></div>');
 
+      // jQuery('#last_minute').append('<div class="card"><h5>'+title+'</h5></div>');
+      jQuery('#last_minute').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
+    });
+  });
+
+   // promotion
+    client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.categorie': 'promotion',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function (entry) {
+      var category = entry.fields.categorie;
+      console.log(JSON.stringify(entry.fields.categorie));
+    
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var etoile = entry.fields.etoile;
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+      var image = entry.fields.image.fields.file.url;
+      console.log(etoile)
+
+      // Btn Promotion
+      jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a>');
       
       // return documentToHtmlString( description);
     });
   });
-
-  // client
-  // .getEntries({
-  //   content_type: 'promotion',
-  //   // 'fields.slug[in]': 'promotion',
-  // })
-  // .then(function (entries) {
-  //   console.log(JSON.stringify(entries));
-  //   entries.items.forEach(function (entry) {
-  //     // console.log(JSON.stringify(entry.fields.categorie));
-  //   });
-  // });
-
-  // client
-  // .getEntries({
-  //   'fields.categorie[in]': 'promotion',
-  // //   content_type: '<product_content_type_id>',
-  // })
-  // .then(function (entries) {
-  //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry));
-  //   });
-  // });
 
 
     </script>

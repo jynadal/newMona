@@ -170,17 +170,8 @@
 
             </div>
         </div>
-        <section class="promotion">
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
-            <button class="promo">Promotion</button>
+        <section id="promotion-btn">
+         
         </section>
     </main>
     <!-- Main End -->
@@ -269,32 +260,6 @@
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
 
-// client
-//   .getEntries({
-//     //'fields.categorie': 'promotion',
-//     content_type: 'voyages',
-//   })
-//   .then(function (entries) {
-//      console.log(JSON.stringify(entries));
-//     entries.items.forEach(function (entry) {
-//       console.log(JSON.stringify(entry.fields.categorie));
-
-client
-  .getEntries({
-    content_type: 'voyages',
-    'fields.categorie': 'promotion',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-      console.log(JSON.stringify(entry.fields.categorie));
-    
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
 
       function nbrEtoile(etoile) {
         if (etoile == 5) {
@@ -319,42 +284,86 @@ client
             .replace(/[^\w-]+/g,'')
             ;
       }
+// flash
+client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.categorie': 'flash',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function (entry) {
+      var category = entry.fields.categorie;
+      console.log(JSON.stringify(entry.fields.categorie));
+    
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var etoile = entry.fields.etoile;
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+      var image = entry.fields.image.fields.file.url;
+      console.log(etoile)
+
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
       jQuery('#flash_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-
-
-      // All include
-      jQuery('#all_inclusive_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-
-      // Promotion
-      jQuery('#promotion_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
   });
 
-  // client
-  // .getEntries({
-  //   content_type: 'voyages',
-  // })
-  // .then(function (entries) {
-  //   console.log(JSON.stringify(entries));
-  //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry.fields.categorie));
-  //   });
-  // });
 
-  // client
-  // .getEntries({
-  //   'fields.categorie': 'promotion',
-  // //   content_type: '<product_content_type_id>',
-  // })
-  // .then(function (entries) {
-  //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry.fields.category));
-  //   });
-  // });
+// all_include
+  client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.categorie': 'all_include',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function (entry) {
+      var category = entry.fields.categorie;
+      console.log(JSON.stringify(entry.fields.categorie));
+    
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var etoile = entry.fields.etoile;
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+      var image = entry.fields.image.fields.file.url;
+      console.log(etoile)
+
+   
+      // All include
+      jQuery('#all_inclusive_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      
+      // return documentToHtmlString( description);
+    });
+  });
+
+  // promotion
+    client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.categorie': 'promotion',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function (entry) {
+      var category = entry.fields.categorie;
+      console.log(JSON.stringify(entry.fields.categorie));
+    
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var etoile = entry.fields.etoile;
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+      var image = entry.fields.image.fields.file.url;
+      console.log(etoile)
+
+      // Promotion
+      jQuery('#promotion_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      
+      // Btn Promotion
+      jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a>');
+      // return documentToHtmlString( description);
+    });
+  });
+
      </script>
      <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BNOV5kr5YhbQZLoGu1ISgYrI8j7_H4cLqsQs4xMMgm9p9KT0fDcrUQwCqp1SxVnsmZNjV3bV3BOpz0mRJJAumGU' });</script><!-- end webpushr code -->
   </body>
