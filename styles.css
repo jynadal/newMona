@@ -3,10 +3,11 @@
 :root {
   --primary: #ff4655;
   --white: #fff;
-  --black: #4d4d4d;
+  --black: grey;
   --black2: #222;
-  --grey1: #dad8d8;
-  --grey2: #e6e6e6;
+  --grey1: lightgrey;
+  /* #dad8d8; */
+  --grey2: grey;
   --orange: #ffa238;
 }
 * {
@@ -24,6 +25,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: #fff;
 }
 /* .content {
   height: 200vh;
@@ -39,6 +41,10 @@ header {
 }
 .icons {
   height: 5rem;
+}
+.star {
+  width: 1.1rem !important;
+  height: 1.1rem !important;
 }
 .nav-toggle-label {
   position: absolute;
@@ -243,7 +249,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5rem 1rem;
+  margin: 2rem 1rem;
   width: 150px;
 }
 .card img,
@@ -268,9 +274,9 @@ main {
 
 .travelList {
   background-color: var(--grey1);
-  color: var(--white);
+  color: var(--white) !important;
   width: 100%;
-  height: 130px;
+  height: 270px;
   text-align: center;
 }
 .travelList h5 {
@@ -286,14 +292,29 @@ h2 {
 }
 .card-layout,
 .card2-layout {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .voir_offre {
   background-color: var(--primary);
   /* border-radius: 0 0 5% 5%; */
   height: 40px;
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  bottom: -10px;
+}
+.travelList p:last-child {
   position: relative;
-  /* top: 19px; */
+  display: flex;
+  align-items: flex-end;
+}
+.voir_plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4d4d4d;
 }
 
 @media screen and (min-width: 800px) {
@@ -351,7 +372,7 @@ h2 {
 
   .travelList {
     /* width: 100%; */
-    height: 110px;
+    height: 370px;
     text-align: center;
     margin-top: -5px;
   }
@@ -368,6 +389,16 @@ h2 {
   position: relative; */
     top: 19px;
   }
+  .voir_plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#promotion-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 .promotion {
   width: 100%;
@@ -378,12 +409,16 @@ h2 {
 }
 .promotion {
   flex: 1 1 1 1 10em;
+  justify-content: center;
 }
 .promo {
-  background-color: var(--primary);
+  min-width: 75px;
+  background-color: lightgray;
+  color: var(--primary);
   margin: 0.5rem;
   padding: 0.5rem;
-  border-radius: 50%;
+  border: 2px solid lightgray;
+  border-radius: 45px 45px / 30px 30px;
   font-size: x-small;
 }
 @media screen and (min-width: 800px) {
@@ -397,7 +432,7 @@ h2 {
 /* Footer */
 footer {
   position: relative;
-  background-color: var(--grey1);
+  /* background-color: var(--grey1); */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -413,7 +448,7 @@ footer {
 .footer-container ul {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   margin-top: 10px auto;
   padding-top: 20px;
   /* padding-right: 10rem; */
@@ -423,13 +458,13 @@ footer {
 }
 .footer-container ul a img {
   list-style: none;
-  width: 60px;
-  height: 60px;
-  border: 1px solid grey;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--primary);
   border-radius: 6%;
   cursor: pointer;
   background-color: var(--primary);
-  padding: 1rem;
+  padding: 0.5rem;
   margin-left: 1rem;
 }
 .footer-copyright {
@@ -442,6 +477,7 @@ footer {
   text-align: center;
   margin: 15px 50px;
   max-width: 1200px;
+  font-size: small;
 }
 
 @media screen and (min-width: 800px) {
@@ -460,7 +496,9 @@ footer {
     max-width: 1200px;
   }
   .footer-container ul a img {
-    padding: 1rem;
+    width: 60px;
+    height: 60px;
+    padding: 0.5rem;
     margin-left: 1rem;
   }
 }
@@ -518,7 +556,8 @@ footer {
   justify-content: space-around;
 }
 .price {
-  font-size: large;
+  font-size: 2rem;
+  font-weight: bold;
   margin-left: 10px;
 }
 .resa {
@@ -552,7 +591,7 @@ footer {
     justify-content: space-around;
   }
   .price {
-    font-size: xx-large;
+    font-size: 3rem;
     font-weight: bold;
   }
   .resa {
