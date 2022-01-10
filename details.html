@@ -43,7 +43,7 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  style="fill: white; transform: ; msfilter: "
+                  
                 >
                   <path
                     d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
@@ -57,7 +57,7 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  style="fill: white; transform: ; msfilter: "
+                  
                 >
                   <path
                     d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"
@@ -109,9 +109,9 @@
                 <h4>Tunisie - Djerba</h4>
                 <br />
                 <p class="contenu">Djerba vous promet un séjour synonyme de douceur, de dépaysement et de tranquillité. Houmt Souk, la capitale administrative de l'île vous charmera par son pittoresque. Le souk, formé autour d'étroites ruelles bordées d'échoppes très animées, dispose d'un grand choix de tissus, tapis, bijoux...
-A quelques kilomètres de Houmt Souk, sur la côte nord-est de l'île, commencent les plages de sable, qui s'étendent, sans interruption, jusqu'à Aghir, au sud-est.
-Djerba constitue une véritable oasis flottante recouverte de centaine de milliers de palmiers et d'oliviers aux troncs séculaires.
-Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche infrastructure hôtelière a parfaitement su s'intégrer à l'environnement et aux paysages djerbiens.</p>
+                  A quelques kilomètres de Houmt Souk, sur la côte nord-est de l'île, commencent les plages de sable, qui s'étendent, sans interruption, jusqu'à Aghir, au sud-est.
+                  Djerba constitue une véritable oasis flottante recouverte de centaine de milliers de palmiers et d'oliviers aux troncs séculaires.
+                  Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche infrastructure hôtelière a parfaitement su s'intégrer à l'environnement et aux paysages djerbiens.</p>
                 <p class="categorie">Catégorie</p>
                 <p class="avantages">Avantage</p>
               </div>
@@ -121,7 +121,7 @@ Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche i
         <div id="promos" class="price-promo">
           <div class="reduction">
             <p>- 50%</p>
-            <p>518 €</p>
+            <s>518 €</s>
           </div>
            <div class="price-resa">
             <p class="price">259€</p>
@@ -206,11 +206,17 @@ Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche i
           </div>
     </footer>
     <script>
+      var titleOffre = window.location.search;
+      alert(titleOffre.replace(/[^\w-]+/g,''))
+        
+
     // Contentful
     var client = contentful.createClient({
   space: '7ws762hxf367',
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
+
+
 
 client
   .getEntries({
@@ -219,7 +225,7 @@ client
   .then(function (entries) {
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
-      // console.log(JSON.stringify(entry.fields.categorie));
+    console.log(JSON.stringify(entry.fields.categorie));
       console.log(entry.fields)
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
@@ -253,7 +259,7 @@ client
       console.log(url2)
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#detail').append('<div class="card2"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#detail').append('<div class="card2"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });

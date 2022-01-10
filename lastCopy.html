@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ff4655" >
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <!-- Boxicons -->
     <link
       href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
@@ -18,7 +17,7 @@
       rel="stylesheet"
     />
 
-    <!-- CDN Contentful -->
+        <!-- CDN Contentful -->
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
     <script>
       var exports = {}; // quick fix because 'exports' is not defined in rich-text bundle below
@@ -33,21 +32,6 @@
 
 
     <title>Mon Agence</title>
-    <link rel="manifest" href="./manifest.json" crossorigin= "use-credentials">
-    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon" >
-    <meta name="theme-color" content="#ff4655">
-    <!-- Script -->
-       <!-- <script src="./main.js"></script> -->
-       <script src="./sw.js"></script>
-    <!-- <script src="./serviceworker.js"></script> -->
-    <!-- <script>
-
-      window.addEventListener('load', ()=> {
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register("serviceWorker.js")
-        }
-      })
-    </script> -->
   </head>
   <body>
     <header>
@@ -59,8 +43,8 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  style="fill: white; transform: ; msfilter: "
                 >
-
                   <path
                     d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
                   ></path>
@@ -73,6 +57,7 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                  style="fill: white; transform: ; msfilter: "
                 >
                   <path
                     d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z"
@@ -112,30 +97,10 @@
         <div class="hero-container">
             <img src="images/voyages/beach.jpg" alt="home" />
         </div>
-        <!-- Vente flash -->
-        <div class="h2">
-          <h2>Vente flash de la semaine</h2>
-          <p>
-            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
-            jours,
-          </p>
-          <p>
-            des offres tous compris à prix mini et des promotions exeptionnelles
-          </p>
-        </div>
-        <!-- cards -->
-       
-          <div id="flash_container" class="card-layout container">
-
-           <!-- All cards go here -->
-           
-          </div>
-          <a href="flash.html"><p class="voir_plus">voir plus de vente flash </p></a>
-        <!-- </div> -->
 
         <!-- All inclusive -->
         <div class="h2">
-          <h2>Voyage all inclusive</h2>
+          <h2>Voyage Dernière Minute</h2>
           <p>
             Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
             jours,
@@ -145,34 +110,12 @@
           </p>
         </div>
         <!-- cards -->
-          <div id="all_inclusive_container" class="card2-layout container">
-
-            <!-- Here go All inclusive -->
+          <div  id="last_minute" class="card2-layout container">
 
           </div>
-          <a href="all_include.html"><p class="voir_plus">voir plus de vente all inclusive > </p></a>
        
-            <!-- Promotion -->
-        <div class="h2">
-            <h2>Promotion de voyage</h2>
-            <p>
-                Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
-                jours,
-            </p>
-            <p>
-                des offres tous compris à prix mini et des promotions exeptionnelles
-            </p>
-            </div>
-            
-            <div id="promotion_container" class="card2-layout container">
-              
-                <!-- Here go Promotion -->
-
-            </div>
-             <a href="promotion.html"><p class="voir_plus">voir plus de vente promotion > </p></a>
-        </div>
         <section id="promotion-btn">
-         
+            
         </section>
     </main>
     <!-- Main End -->
@@ -230,7 +173,7 @@
         </div>
 
           <div class="footer-copyright">
-          <p>
+            <p>
                 <!-- La vente de voyages sous la marque Monagence.com est assurée par
               SARL  -->
               RF Distribution au capital de 100 000 euros. Garantie
@@ -241,39 +184,41 @@
             </p>
           </div>
     </footer>
-     <!-- Script -->
-     <script>
-         if ("serviceWorker" in navigator) {
-  window
-    .addEventListener("load", async () => {
-      await navigator.serviceWorker.register("./sw.js").then(swReg => {
-          console.log("Worker Registered!")
-      }).catch(error => {
-          console.log("There was an error", error)
-      });
-    })
-    
-    }
-
+    <script>
     // Contentful
     var client = contentful.createClient({
   space: '7ws762hxf367',
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
 
+function nbrEtoile(etoile) {
+  if (etoile == 5) {
+    return "* * * * *"
+  }
+    if (etoile == 4) {
+    return "* * * *"
+  }
+  if (etoile == 3) {
+    return "* * *"
+  }
+    if (etoile == 2) {
+    return "* *"
+  } else 
+  return  "*"
+}
 
-      function convertToSlug(Text) {
-        return Text
-            .toLowerCase()
-            .replace(/ /g,'_')
-            .replace(/[^\w-]+/g,'')
-            ;
-      }
-// flash
+function convertToSlug(Text) {
+  return Text
+      .toLowerCase()
+      .replace(/ /g,'_')
+      .replace(/[^\w-]+/g,'')
+      ;
+}
+
 client
   .getEntries({
     content_type: 'voyages',
-    'fields.categorie': 'flash',
+    'fields.categorie': 'last_minute',
   })
   .then(function (entries) {
     entries.items.forEach(function (entry) {
@@ -288,63 +233,12 @@ client
       console.log(etoile)
 
 
-      // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/48/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-      
-      // return documentToHtmlString( description);
-    });
-  });
-
-
-// all_include
-  client
-  .getEntries({
-    content_type: 'voyages',
-    'fields.categorie': 'all_include',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-      console.log(JSON.stringify(entry.fields.categorie));
-    
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
-
-   
-      // All include
-      jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+' <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-      
-      // return documentToHtmlString( description);
-    });
-  });
-
-  // promotion
-    client
-  .getEntries({
-    content_type: 'voyages',
-    'fields.categorie': 'promotion',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-      console.log(JSON.stringify(entry.fields.categorie));
-    
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
-
-      // Promotion
-      jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      // jQuery('#last_minute').append('<div class="card"><h5>'+title+'</h5></div>');
+      jQuery('#last_minute').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
     });
   });
+
   // promotion
     client
   .getEntries({
@@ -363,7 +257,7 @@ client
       console.log(etoile)
 
       // // Promotion
-      // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/>'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // Btn Promotion
       jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">'+category+'</button></a>');
@@ -371,8 +265,7 @@ client
     });
   });
 
-     </script>
-     <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BNOV5kr5YhbQZLoGu1ISgYrI8j7_H4cLqsQs4xMMgm9p9KT0fDcrUQwCqp1SxVnsmZNjV3bV3BOpz0mRJJAumGU' });</script><!-- end webpushr code -->
+
+    </script>
   </body>
-  
 </html>
