@@ -16,6 +16,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- CDN Contentful -->
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
@@ -25,6 +27,7 @@
     <script
       src="https://unpkg.com/@contentful/rich-text-html-renderer@12.0.0/dist/rich-text-html-renderer.es5.js"
       charset="utf-8"
+      main.js
     ></script>
 
     <!-- jQuery -->
@@ -101,8 +104,19 @@
             </div>
             <div class="content">
               <div class="slider">
-                <img src="images/voyage-circuit-combines.jpg " alt="slider" />
+                <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
+                <img src="images/vacances-en-famille.jpg " alt="slider2" class="img__slider"/>
+                <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/>
+                <div class="suivant">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                <!-- <i class="fa-solid fa-angle-right"></i> -->
+                </div>
+                <div class="precedent">
+                <i class="fa-solid fa-circle-chevron-left"></i>
+                <!-- <i class="fa-solid fa-angle-left"></i> -->
+                </div>
               </div>
+
               <div class="description">
                 <p class="descrip">Description</p>
                 <h3>Hôtel Stariberostar Mehari</h3>
@@ -208,85 +222,127 @@
     <script>
       var titleOffre = window.location.search;
       alert(titleOffre.replace(/[^\w-]+/g,''))
+      alert(titleOffre)
+
+      let img__slider = document.getElementsByClassName("img__slider");
+console.log(img__slider)
+
+let etape = 0;
+
+let nbr_img = img__slider.length;
+
+let precedent = document.querySelector(".precedent");
+let suivant = document.querySelector(".suivant")
+
+function enleverActiveImages() {
+for(let i=0; i<nbr_img;  i++) {
+    img__slider[i].classList.remove("active");
+    }
+}
+
+suivant.addEventListener('click', function() {
+    etape++;
+    if (etape >= nbr_img) {
+    etape = 0;
+    }
+    enleverActiveImages();
+    img__slider[etape].classList.add("active");
+})
+
+precedent.addEventListener('click', function() {
+    etape--;
+    if (etape <0){
+    etape=nbr_img-1;}
+    enleverActiveImages();
+    img__slider[etape].classList.add("active");
+})
+
+setInterval(function(){
+ etape++;
+    if (etape >= nbr_img) {
+    etape = 0;
+    }
+    enleverActiveImages();
+    img__slider[etape].classList.add("active");
+
+}, 3000)
         
 
-    // Contentful
-    var client = contentful.createClient({
-  space: '7ws762hxf367',
-  accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
-});
+//     // Contentful
+//     var client = contentful.createClient({
+//   space: '7ws762hxf367',
+//   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
+// });
 
+// client
+//   .getEntries({
+//     content_type: 'all_include',
+//   })
+//   .then(function (entries) {
+//     entries.items.forEach(function (entry) {
+//       var category = entry.fields.categorie;
+//     console.log(JSON.stringify(entry.fields.categorie));
+//       console.log(entry.fields)
+//       var title = entry.fields.title;
+//       var etoile = entry.fields.etoile;
+//       var prixAvecPromos = entry.fields.prixAvecPromos;
+//       var image = entry.fields.image.fields.file.url;
+//       console.log(etoile)
 
+//         function convertToSlug(Text) {
+//         return Text
+//             .toLowerCase()
+//             .replace(/ /g,'_')
+//             .replace(/[^\w-]+/g,'')
+//             ;
+//       }
 
-client
-  .getEntries({
-    content_type: 'all_include',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-    console.log(JSON.stringify(entry.fields.categorie));
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+//       // function getParameterByName(nama) {
+//       //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
+//       //   var regexS = [?&] + name + =([^&#]*);
+//       //   var regex = new RegExp(regexS);
+//       //   var results = regex.exec(window.location.search);
+//       //   if (results == null)
+//       //   return ;
+//       //   else
+//       //   return decodeURIComponent(results[1].replace(/+/g, ));
+//       // }
 
-        function convertToSlug(Text) {
-        return Text
-            .toLowerCase()
-            .replace(/ /g,'_')
-            .replace(/[^\w-]+/g,'')
-            ;
-      }
+//       var url = window.location.search()
+//       console.log(url)
 
-      // function getParameterByName(nama) {
-      //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
-      //   var regexS = [?&] + name + =([^&#]*);
-      //   var regex = new RegExp(regexS);
-      //   var results = regex.exec(window.location.search);
-      //   if (results == null)
-      //   return ;
-      //   else
-      //   return decodeURIComponent(results[1].replace(/+/g, ));
-      // }
+//        var url2 = location.search()
+//       console.log(url2)
 
-      var url = window.location.search()
-      console.log(url)
-
-       var url2 = location.search()
-      console.log(url2)
-
-      // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#detail').append('<div class="card2"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+//       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
+//       jQuery('#detail').append('<div class="card2"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
-      // return documentToHtmlString( description);
-    });
-  });
+//       // return documentToHtmlString( description);
+//     });
+//   });
 
-  // client
-  // .getEntries({
-  //   content_type: 'promotion',
-  //   // 'fields.slug[in]': 'promotion',
-  // })
-  // .then(function (entries) {
-  //   console.log(JSON.stringify(entries));
-  //   entries.items.forEach(function (entry) {
-  //     // console.log(JSON.stringify(entry.fields.categorie));
-  //   });
-  // });
+//   // client
+//   // .getEntries({
+//   //   content_type: 'promotion',
+//   //   // 'fields.slug[in]': 'promotion',
+//   // })
+//   // .then(function (entries) {
+//   //   console.log(JSON.stringify(entries));
+//   //   entries.items.forEach(function (entry) {
+//   //     // console.log(JSON.stringify(entry.fields.categorie));
+//   //   });
+//   // });
 
-  // client
-  // .getEntries({
-  //   'fields.categorie[in]': 'promotion',
-  // //   content_type: '<product_content_type_id>',
-  // })
-  // .then(function (entries) {
-  //   entries.items.forEach(function (entry) {
-  //     console.log(JSON.stringify(entry));
-  //   });
-  // });
+//   // client
+//   // .getEntries({
+//   //   'fields.categorie[in]': 'promotion',
+//   // //   content_type: '<product_content_type_id>',
+//   // })
+//   // .then(function (entries) {
+//   //   entries.items.forEach(function (entry) {
+//   //     console.log(JSON.stringify(entry));
+//   //   });
+//   // });
 
 
     </script>
