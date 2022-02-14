@@ -583,9 +583,11 @@ left:3rem
 }
 
 .price-promo {
+  height: 200px;
   border: 1px solid grey;
   margin: 10px 10px;
 }
+
 .reduction {
   display: flex;
   flex-direction: row;

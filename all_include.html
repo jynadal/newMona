@@ -218,17 +218,16 @@ client
     entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
       console.log(JSON.stringify(entry.fields.categorie));
-    
+
       console.log(entry.fields)
+      var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
-
-
+     
       // jQuery('#all_include').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#all_include').append('<div class="card"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#all_include').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
     });
   });
@@ -244,8 +243,10 @@ client
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+      var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
+      var entry_id = entry.fields.id;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
@@ -254,7 +255,7 @@ client
       // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/>'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // Btn Promotion
-      jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">'+catName(category)+'</button></a>');
+      jQuery('#promotion-btn').append('<a href="details.html?id='+id+'"><button class="promo">'+catName(category)+'</button></a>');
       // return documentToHtmlString( description);
     });
   });

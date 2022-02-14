@@ -99,14 +99,17 @@
     <main>
         <!-- Detail Container -->
           <div  id="detail" class="detail-container">
-            <div class="h1">
-            <h1>Titre</h1>
+
+            <div id="h1">
+            <!-- <h1 >{titleOffre}</h1> -->
             </div>
+
             <div class="content">
-              <div class="slider">
-                <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
+
+              <div id="slider">
+                <!-- <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
                 <img src="images/vacances-en-famille.jpg " alt="slider2" class="img__slider"/>
-                <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/>
+                <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/> -->
                 <div class="suivant">
                 <i class="fa-solid fa-circle-chevron-right"></i>
                 <!-- <i class="fa-solid fa-angle-right"></i> -->
@@ -117,8 +120,8 @@
                 </div>
               </div>
 
-              <div class="description">
-                <p class="descrip">Description</p>
+              <div id="description">
+                <!-- <p class="descrip">Description</p>
                 <h3>Hôtel Stariberostar Mehari</h3>
                 <h4>Tunisie - Djerba</h4>
                 <br />
@@ -127,9 +130,10 @@
                   Djerba constitue une véritable oasis flottante recouverte de centaine de milliers de palmiers et d'oliviers aux troncs séculaires.
                   Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche infrastructure hôtelière a parfaitement su s'intégrer à l'environnement et aux paysages djerbiens.</p>
                 <p class="categorie">Catégorie</p>
-                <p class="avantages">Avantage</p>
+                <p class="avantages">Avantage</p> -->
               </div>
-            </div>       
+            </div>  
+
           </div>
        
         <div id="promos" class="price-promo">
@@ -220,9 +224,16 @@
           </div>
     </footer>
     <script>
-      var titleOffre = window.location.search;
-      alert(titleOffre.replace(/[^\w-]+/g,''))
-      alert(titleOffre)
+    //   var titleOffre = window.location.search;
+    //   alert(titleOffre.replace(/[^\w-]+/g,''))
+    //   alert(titleOffre)
+
+      const url = new URL(window.location.href)
+      category=url.searchParams.get("cat")
+      entry_id=url.searchParams.get("id")
+      console.log(category);
+
+
 
       let img__slider = document.getElementsByClassName("img__slider");
 console.log(img__slider)
@@ -268,34 +279,54 @@ setInterval(function(){
 }, 3000)
         
 
-//     // Contentful
-//     var client = contentful.createClient({
-//   space: '7ws762hxf367',
-//   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
-// });
+    // Contentful
+    var client = contentful.createClient({
+  space: '7ws762hxf367',
+  accessToken:'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
+});
 
-// client
-//   .getEntries({
-//     content_type: 'all_include',
-//   })
-//   .then(function (entries) {
-//     entries.items.forEach(function (entry) {
-//       var category = entry.fields.categorie;
-//     console.log(JSON.stringify(entry.fields.categorie));
-//       console.log(entry.fields)
-//       var title = entry.fields.title;
-//       var etoile = entry.fields.etoile;
-//       var prixAvecPromos = entry.fields.prixAvecPromos;
-//       var image = entry.fields.image.fields.file.url;
-//       console.log(etoile)
+// client.getEntries({
+//  content_type: titleOffre
+// }).then(response => console.log(response.items));
 
-//         function convertToSlug(Text) {
-//         return Text
-//             .toLowerCase()
-//             .replace(/ /g,'_')
-//             .replace(/[^\w-]+/g,'')
-//             ;
-//       }
+// client.getEntry('entry_id').then(function (entry) {
+// })
+
+client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.id':entry_id,
+    // 'sea_lagon_le_printemps_gueliz',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function(entry) {
+
+    var category = entry.fields.categorie;
+
+    console.log(JSON.stringify(entry.fields.title));
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var titre2 = entry.fields.titre2;
+      var description = entry.fields.description;
+      var category = entry.fields.category;
+          
+      var avantage1 = entry.fields.avantage1;
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+        var slider1 = entry.fields.sliderImage1.fields.file.url;
+        var slider2 = entry.fields.sliderImage2.fields.file.url;
+        var slider3 = entry.fields.sliderImage3.fields.file.url;
+        var slider4 = entry.fields.sliderImage4.fields.file.url;
+        //.fields.file.url;
+      console.log(slider1)
+       console.log(slider4)
+
+        function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
 
 //       // function getParameterByName(nama) {
 //       //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
@@ -315,11 +346,19 @@ setInterval(function(){
 //       console.log(url2)
 
 //       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-//       jQuery('#detail').append('<div class="card2"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-      
+   // jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
+    
+    jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
+    jQuery('#slider').append('<img src='+slider1+' alt="slider" class="img__slider active"/> <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>');
+    jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
+    // <img src='+slider2+' alt="slider" class="img__slider hide"/><img src='+slider3+' alt="slider" class="img__slider hide"/><img src='+slider4+' alt="slider" class="img__slider hide"/> 
+
 //       // return documentToHtmlString( description);
-//     });
-//   });
+    });
+  });
+
+
+
 
 //   // client
 //   // .getEntries({
@@ -333,11 +372,11 @@ setInterval(function(){
 //   //   });
 //   // });
 
-//   // client
-//   // .getEntries({
-//   //   'fields.categorie[in]': 'promotion',
-//   // //   content_type: '<product_content_type_id>',
-//   // })
+//   client
+//   .getEntries({
+//     'fields.categorie[in]': 'promotion',
+//   //   content_type: '<product_content_type_id>',
+//   })
 //   // .then(function (entries) {
 //   //   entries.items.forEach(function (entry) {
 //   //     console.log(JSON.stringify(entry));

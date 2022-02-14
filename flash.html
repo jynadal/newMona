@@ -117,15 +117,6 @@
           <br>
   <div class="h3">
        
-<iframe
-  src="https://tally.so/embed/3EEVX3?alignLeft=1&hideTitle=1&transparentBackground=1"
-  width="100%"
-  height="800"
-  frameborder="0"
-  marginheight="0"
-  marginwidth="0"
-  title="S'enregistrer en tant que porter de projet">
-</iframe>
   </div>        
         <section id="promotion-btn">
       
@@ -228,6 +219,7 @@ client
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+      var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
@@ -236,7 +228,7 @@ client
 
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?'+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
