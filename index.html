@@ -85,10 +85,10 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <nav>
         <ul>
-          <li class="li"><a href="flash.html">Vente Flash</a></li>
-          <li><a href="last_minute.html">Dernière Minute</a></li>
-          <li><a href="all_include.html">All Inclusive</a></li>
+          <li class="li"><a href="flash.html">Ventes Flash</a></li>
           <li><a href="promotion.html">Promotion</a></li>
+          <li><a href="all_include.html">All IN</a></li>
+          <li><a href="last_minute.html">Dernières Minutes</a></li>
         </ul>
       </nav>
       <label for="nav-toggle" class="nav-toggle-label">
@@ -171,8 +171,11 @@
             </div>
              <a href="promotion.html"><p class="voir_plus">voir plus de vente promotion > </p></a>
         </div>
-        <section id="promotion-btn">
-         
+        <section class="promotion-btn">
+            <a href="/flash.html"><button class="promo">Ventes Flash</button></a>
+            <a href="/promotion.html"><button class="promo">Promotion</button></a>
+            <a href="/all_include.html"><button class="promo"> ALL IN </button></a>
+            <a href="/last_minute.html"><button class="promo">Dernières Minutes</button></a>        
         </section>
     </main>
     <!-- Main End -->
@@ -284,12 +287,16 @@ client
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
+      var prixAvant = entry.fields.prixAvant;
+      var promotion = entry.fields.promotion;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+
+      var promo      
+     promo = prixAvant ? '<s class="priceAvant">'+prixAvant +' € </s>': promotion;
 
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/48/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/48/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
@@ -312,11 +319,16 @@ client
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+      var prixAvant = entry.fields.prixAvant;
+      var promotion = entry.fields.promotion;
+      var image = entry.fields.image.fields.file.url;
+
+      var promo      
+     promo = prixAvant ? '<s class="priceAvant">'+prixAvant +' € </s>': promotion;
 
    
       // All include
-      jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+' <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+' <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
@@ -338,38 +350,47 @@ client
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+      var prixAvant = entry.fields.prixAvant;
+      var promotion = entry.fields.promotion;
+      var image = entry.fields.image.fields.file.url;
+
+      var promo      
+     promo = prixAvant ? '<s class="priceAvant">'+prixAvant +' € </s>': promotion;
 
       // Promotion
-      jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       
     });
   });
-  // promotion
-    client
-  .getEntries({
-    content_type: 'voyages',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-      console.log(JSON.stringify(entry.fields.categorie));
-    
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
 
-      // // Promotion
-      // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+
+
+//   // promotion
+//     client
+//   .getEntries({
+//     content_type: 'voyages',
+//   })
+//   .then(function (entries) {
+//     entries.items.forEach(function (entry) {
+//       var category = entry.fields.categorie;
+//       console.log(JSON.stringify(entry.fields.categorie));
+    
+//       console.log(entry.fields)
+//       var title = entry.fields.title;
+//       var etoile = entry.fields.etoile;
+//       var prixAvecPromos = entry.fields.prixAvecPromos;
+//       var image = entry.fields.image.fields.file.url;
+//       console.log(etoile)
+
+//       // // Promotion
+//       // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
-      // Btn Promotion
-      jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">'+category+'</button></a>');
-      // return documentToHtmlString( description);
-    });
-  });
+//       // Btn Promotion
+//       jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">'+category+'</button></a>');
+//       // return documentToHtmlString( description);
+//     });
+
+  //});
 
      </script>
      <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BNOV5kr5YhbQZLoGu1ISgYrI8j7_H4cLqsQs4xMMgm9p9KT0fDcrUQwCqp1SxVnsmZNjV3bV3BOpz0mRJJAumGU' });</script><!-- end webpushr code -->

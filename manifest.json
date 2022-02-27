@@ -6,7 +6,6 @@
   "lang": "fr",
   "background_color": "#4d4d4d",
   "theme_color": "#ff4655",
-
   "display": "standalone",
   "icon": "images/icon.png",
   "icons": [

@@ -74,10 +74,10 @@
       <nav>
         <ul>
           <li class="li"><a href="flash.html">Vente Flash</a></li>
-          <li><a href="last_minute.html">Dernière Minute</a></li>
-          <li><a href="all_include.html">All Inclusive</a></li>
           <li><a href="promotion.html">Promotion</a></li>
-        </ul>
+          <li><a href="all_include.html">All IN</a></li>
+          <li><a href="last_minute.html">Dernières Minutes</a></li>
+          </ul>
       </nav>
       <label for="nav-toggle" class="nav-toggle-label">
         <span></span>
@@ -105,19 +105,52 @@
             </div>
 
             <div class="content">
+            <!-- <style>
+                .slider {
+                width: 500px;
+                overflow: hidden;
+                }
+                .slides {
+                    width: calc(500px * 4);
+                    animation: glisse 10s infinite;
+                }
+                .img__slider {
+                    float: left;
+                    }
 
-              <div id="slider">
-                <!-- <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
-                <img src="images/vacances-en-famille.jpg " alt="slider2" class="img__slider"/>
-                <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/> -->
-                <div class="suivant">
-                <i class="fa-solid fa-circle-chevron-right"></i>
-                <!-- <i class="fa-solid fa-angle-right"></i> -->
-                </div>
-                <div class="precedent">
-                <i class="fa-solid fa-circle-chevron-left"></i>
-                <!-- <i class="fa-solid fa-angle-left"></i> -->
-                </div>
+                @keyframes glisse {
+                    0% {
+                    transform: translateX(0);
+                    }
+                    25% {
+                    transform: translateX(-500px);
+                    }
+                    50% {
+                    transform: translateX(-1000px);
+                    }
+                    75% {
+                    transform: translateX(-1500px);
+                    }
+                    100% {
+                    transform: translateX(0px);
+                    }
+                }
+            </style> -->
+
+              <div id="slider" class="slider">
+                <!-- <div class="slides"> -->
+                    <!-- <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
+                    <img src="images/vacances-en-famille.jpg " alt="slider2" class="img__slider"/>
+                    <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/> -->
+                    <!-- <div class="suivant">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                    <i class="fa-solid fa-angle-right"></i> -->
+                    <!-- </div>
+                    <div class="precedent">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                    <i class="fa-solid fa-angle-left"></i>
+                    </div> -->
+                <!-- </div> -->
               </div>
 
               <div id="description">
@@ -137,7 +170,7 @@
           </div>
        
         <div id="promos" class="price-promo">
-          <div class="reduction">
+          <!-- <div class="reduction">
             <p>- 50%</p>
             <s>518 €</s>
           </div>
@@ -148,8 +181,9 @@
                 <p>Voir les disponibilités </p>
               </div>
             </a>
-          </div>
+          </div> -->
         </div>
+
         <section class="infos"> 
       Besoin de plus d'information !
       <br />
@@ -235,7 +269,120 @@
 
 
 
-      let img__slider = document.getElementsByClassName("img__slider");
+        
+
+    // Contentful
+    var client = contentful.createClient({
+  space: '7ws762hxf367',
+  accessToken:'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
+});
+
+// client.getEntries({
+//  content_type: titleOffre
+// }).then(response => console.log(response.items));
+
+// client.getEntry('entry_id').then(function (entry) {
+// })
+
+client
+  .getEntries({
+    content_type: 'voyages',
+    'fields.id':entry_id,
+    // 'sea_lagon_le_printemps_gueliz',
+  })
+  .then(function (entries) {
+    entries.items.forEach(function(entry) {
+
+    var category = entry.fields.categorie;
+
+    console.log(JSON.stringify(entry.fields.title));
+      console.log(entry.fields)
+      var title = entry.fields.title;
+      var titre2 = entry.fields.titre2;
+      var description = entry.fields.description;
+      var category = entry.fields.category;
+      var avantage1 = entry.fields.avantage1;
+
+      var prixAvecPromos = entry.fields.prixAvecPromos;
+      var promotion = entry.fields.promotion;
+      var prixAvant = entry.fields.prixAvant;
+      var disponibilite = entry.fields.disponibilite;
+        
+        var slider1 = entry.fields.sliderImage1.fields.file.url;
+        var slider2 = entry.fields.sliderImage2.fields.file.url;
+        var slider3 = entry.fields.sliderImage3.fields.file.url;
+        var slider4 = entry.fields.sliderImage4.fields.file.url;
+        //.fields.file.url;
+      console.log(slider1)
+       console.log(slider4)
+
+        function convertToSlug(Text) {
+        return Text
+            .toLowerCase()
+            .replace(/ /g,'_')
+            .replace(/[^\w-]+/g,'')
+            ;
+      }
+
+//       // function getParameterByName(nama) {
+//       //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
+//       //   var regexS = [?&] + name + =([^&#]*);
+//       //   var regex = new RegExp(regexS);
+//       //   var results = regex.exec(window.location.search);
+//       //   if (results == null)
+//       //   return ;
+//       //   else
+//       //   return decodeURIComponent(results[1].replace(/+/g, ));
+//       // }
+
+//       var url = window.location.search()
+//       console.log(url)
+
+//        var url2 = location.search()
+//       console.log(url2)
+
+//       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
+   // jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
+    
+    jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
+    //jQuery('#slider').append('<img src='+slider1+' alt="slider"/><div class="img__slider ><img src='+slider2+' alt="slider"/><img src='+slider3+' alt="slider"/><img src='+slider4+' alt="slider"/>');
+    jQuery('#slider').append('<img src='+slider1+' alt="slider" class="img__slider active" /> <img src='+slider2+' alt="slider"  class="img__slider" /><img src='+slider3+' alt="slider" class="img__slider"/><img src='+slider4+' alt="slider" class="img__slider"/> <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>');
+    //jQuery('#slider').append('<div class="slides"><div class="img__slider" ><img src='+slider1+' alt="slider"/></div> <div class="img__slider ><img src='+slider2+' alt="slider"/></div> <div class="img__slider ><img src='+slider3+' alt="slider"/></div> <div class="img__slider ><img src='+slider4+' alt="slider"/></div></div>');
+    jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
+    // <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>
+    jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+'</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>');
+//       // return documentToHtmlString( description);
+    });
+  });
+
+
+
+
+//   // client
+//   // .getEntries({
+//   //   content_type: 'promotion',
+//   //   // 'fields.slug[in]': 'promotion',
+//   // })
+//   // .then(function (entries) {
+//   //   console.log(JSON.stringify(entries));
+//   //   entries.items.forEach(function (entry) {
+//   //     // console.log(JSON.stringify(entry.fields.categorie));
+//   //   });
+//   // });
+
+//   client
+//   .getEntries({
+//     'fields.categorie[in]': 'promotion',
+//   //   content_type: '<product_content_type_id>',
+//   })
+//   // .then(function (entries) {
+//   //   entries.items.forEach(function (entry) {
+//   //     console.log(JSON.stringify(entry));
+//   //   });
+//   // });
+
+
+let img__slider = document.getElementsByClassName("img__slider");
 console.log(img__slider)
 
 let etape = 0;
@@ -277,112 +424,6 @@ setInterval(function(){
     img__slider[etape].classList.add("active");
 
 }, 3000)
-        
-
-    // Contentful
-    var client = contentful.createClient({
-  space: '7ws762hxf367',
-  accessToken:'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
-});
-
-// client.getEntries({
-//  content_type: titleOffre
-// }).then(response => console.log(response.items));
-
-// client.getEntry('entry_id').then(function (entry) {
-// })
-
-client
-  .getEntries({
-    content_type: 'voyages',
-    'fields.id':entry_id,
-    // 'sea_lagon_le_printemps_gueliz',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function(entry) {
-
-    var category = entry.fields.categorie;
-
-    console.log(JSON.stringify(entry.fields.title));
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var titre2 = entry.fields.titre2;
-      var description = entry.fields.description;
-      var category = entry.fields.category;
-          
-      var avantage1 = entry.fields.avantage1;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-        var slider1 = entry.fields.sliderImage1.fields.file.url;
-        var slider2 = entry.fields.sliderImage2.fields.file.url;
-        var slider3 = entry.fields.sliderImage3.fields.file.url;
-        var slider4 = entry.fields.sliderImage4.fields.file.url;
-        //.fields.file.url;
-      console.log(slider1)
-       console.log(slider4)
-
-        function convertToSlug(Text) {
-        return Text
-            .toLowerCase()
-            .replace(/ /g,'_')
-            .replace(/[^\w-]+/g,'')
-            ;
-      }
-
-//       // function getParameterByName(nama) {
-//       //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
-//       //   var regexS = [?&] + name + =([^&#]*);
-//       //   var regex = new RegExp(regexS);
-//       //   var results = regex.exec(window.location.search);
-//       //   if (results == null)
-//       //   return ;
-//       //   else
-//       //   return decodeURIComponent(results[1].replace(/+/g, ));
-//       // }
-
-//       var url = window.location.search()
-//       console.log(url)
-
-//        var url2 = location.search()
-//       console.log(url2)
-
-//       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-   // jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
-    
-    jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
-    jQuery('#slider').append('<img src='+slider1+' alt="slider" class="img__slider active"/> <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>');
-    jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
-    // <img src='+slider2+' alt="slider" class="img__slider hide"/><img src='+slider3+' alt="slider" class="img__slider hide"/><img src='+slider4+' alt="slider" class="img__slider hide"/> 
-
-//       // return documentToHtmlString( description);
-    });
-  });
-
-
-
-
-//   // client
-//   // .getEntries({
-//   //   content_type: 'promotion',
-//   //   // 'fields.slug[in]': 'promotion',
-//   // })
-//   // .then(function (entries) {
-//   //   console.log(JSON.stringify(entries));
-//   //   entries.items.forEach(function (entry) {
-//   //     // console.log(JSON.stringify(entry.fields.categorie));
-//   //   });
-//   // });
-
-//   client
-//   .getEntries({
-//     'fields.categorie[in]': 'promotion',
-//   //   content_type: '<product_content_type_id>',
-//   })
-//   // .then(function (entries) {
-//   //   entries.items.forEach(function (entry) {
-//   //     console.log(JSON.stringify(entry));
-//   //   });
-//   // });
-
 
     </script>
   </body>

@@ -173,7 +173,7 @@ nav a:hover {
   }
 
   /* nav a::before {
-    content: ""; 
+    content: "";
     display: block;
 
     display: block;
@@ -216,6 +216,9 @@ nav a:hover {
     display: none;
   }
 }
+
+
+
 /* Main Beggin */
 main {
   position: relative;
@@ -280,8 +283,9 @@ main {
   text-align: center;
 }
 .travelList h5 {
-  /* margin-top: 5px; */
-  font-size: large;
+  margin-top: 15px;
+  /* height: 16px; */
+  /* font-size: large; */
 }
 h2 {
   font-weight: bold;
@@ -297,25 +301,39 @@ h2 {
 .voir_offre {
   background-color: var(--primary);
   /* border-radius: 0 0 5% 5%; */
-  height: 40px;
+  height: 50px;
+  width:100%;
+
   /* position: relative; */
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
-  bottom: -10px;
+  bottom: -5px;
+  /* margin-bottom: 5px; */
 }
-.travelList p:last-child {
+
+.voir_offre p{
+font-weight: bold;
+}
+/* .travelList p:last-child {
   position: relative;
-  display: flex;
-  align-items: flex-end;
-}
+  display: flex; */
+  /* align-items: flex-end; */
+/* } */
 .voir_plus {
   display: flex;
   align-items: center;
   justify-content: center;
   color: #4d4d4d;
 }
+.les-produits {
+margin: 20px 10px;
+}
+.travel-cat {
+margin: 30px 0;
+}
+
 
 @media screen and (min-width: 800px) {
   .hero-container {
@@ -348,12 +366,12 @@ h2 {
     justify-content: center;
     align-items: center;
     margin: 3rem 1rem;
-    width: 300px;
+    width: 250px;
   }
 
   .card2 img,
   .card img {
-    width: 300px;
+    width: 250px;
     height: 200px;
   }
   .card2-layout {
@@ -367,7 +385,7 @@ h2 {
     margin: 1rem auto;
   }
   .card2-layout {
-    flex: 1 1 1 1 10em;
+    flex: 1 1 10em;
   }
 
   .travelList {
@@ -395,11 +413,17 @@ h2 {
     justify-content: center;
   }
 }
-#promotion-btn {
+
+.promotion-btn {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  cursor: pointer;
 }
+.promotion-btn .promo{
+  cursor: pointer;
+}
+
 .promotion {
   width: 100%;
   display: flex;
@@ -448,7 +472,7 @@ footer {
 .footer-container ul {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
+  justify-content: center;
   margin-top: 10px auto;
   padding-top: 20px;
   /* padding-right: 10rem; */
@@ -482,7 +506,7 @@ footer {
 
 @media screen and (min-width: 800px) {
   .footer-container ul {
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-top: 10px;
     padding-top: 20px;
     margin-left: 20px;
@@ -599,9 +623,9 @@ left:3rem
   justify-content: space-around;
 }
 .price {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-left: 10px;
+  font-size: 1.5rem;
+  /* font-weight: bold;
+  margin-left: 10px; */
 }
 .resa {
   border: 1px solid var(--primary);
@@ -617,10 +641,11 @@ left:3rem
 @media screen and (min-width: 800px) {
   .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 50px;
     color: red;
   }
+  /* 2x 1fr */
   .price-promo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -634,8 +659,11 @@ left:3rem
     align-items: center;
     justify-content: space-around;
   }
+  .old-price {
+  font-size: 1rem;
+  }
   .price {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
   }
   .resa {

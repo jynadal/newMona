@@ -71,10 +71,10 @@
       <nav>
         <ul>
           <li class="li"><a href="flash.html">Vente Flash</a></li>
-          <li><a href="last_minute.html">Dernière Minute</a></li>
-          <li><a href="all_include.html">All Inclusive</a></li>
           <li><a href="promotion.html">Promotion</a></li>
-        </ul>
+          <li><a href="all_include.html">All IN</a></li>
+          <li><a href="last_minute.html">Dernières Minutes</a></li>
+          </ul>
       </nav>
       <label for="nav-toggle" class="nav-toggle-label">
         <span></span>
@@ -100,13 +100,16 @@
 
         <!-- All inclusive -->
         <div class="h2">
-          <h2>Les Promotions sur les Voyages </h2>
+    
+          <h2 class="travel-cat">Les Promotions sur les Voyages </h2>
+        
           <p>
-            Ne revez plus, voyagez! Monagence c'est des ventes flash tous les
-            jours,
+            Pour un séjour de rêve, découvrez nos offres à des tarifs ultra-compétitifs !
+            <br />Des réductions exclusives jusqu'à -80 %  
+            <br />Réservez dès maintenant votre séjour au meilleur prix promotionnels et <br />payez en 3X ou 4X sans frais par carte bancaire.
           </p>
-          <p>
-            des offres tous compris à prix mini et des promotions exeptionnelles
+          <p class="les-produits">
+            Voici la sélection des produits :
           </p>
         </div>
         <!-- cards -->
@@ -114,8 +117,11 @@
 
           </div>
        
-        <section id="promotion-btn">
-            
+        <section class="promotion-btn">
+            <a href="/flash.html"><button class="promo">Ventes Flash</button></a>
+            <a href="/promotion.html"><button class="promo">Promotion</button></a>
+            <a href="/all_include.html"><button class="promo"> ALL IN </button></a>
+            <a href="/last_minute.html"><button class="promo">Dernières Minutes</button></a>            
         </section>
     </main>
     <!-- Main End -->
@@ -185,28 +191,12 @@
           </div>
     </footer>
     <script>
+    
     // Contentful
     var client = contentful.createClient({
   space: '7ws762hxf367',
   accessToken: 'gdawe9nwkgsiG3pphCP77Gxyq5QLuQY5H3eHt_PIY5Q',
 });
-
-
-      function nbrEtoile(etoile) {
-        if (etoile == 5) {
-          return "* * * * *"
-        }
-           if (etoile == 4) {
-          return "* * * *"
-        }
-        if (etoile == 3) {
-          return "* * *"
-        }
-           if (etoile == 2) {
-          return "* *"
-        } else 
-        return  "*"
-      }
 
       function convertToSlug(Text) {
         return Text
@@ -222,52 +212,53 @@ client
     'fields.categorie': 'promotion',
   })
   .then(function (entries) {
-    entries.items.forEach(function (entry) {
+    entries.items.slice(4).forEach(function (entry) {
       var category = entry.fields.categorie;
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+      var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
+      var prixAvant = entry.fields.prixAvant;
+      var promotion = entry.fields.promotion;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
       console.log(etoile)
 
+    promo = prixAvant ? '<s class="old-price">'+prixAvant +' € </s>': promotion;
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#promotion').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-      
-      //  // Btn Promotion
-      // jQuery('#promotion-btn').append('<div><a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a></div>');
-      // // return documentToHtmlString( description);
+      jQuery('#promotion').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+'<p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
     });
   });
 
- // promotion
-    client
-  .getEntries({
-    content_type: 'voyages',
-  })
-  .then(function (entries) {
-    entries.items.forEach(function (entry) {
-      var category = entry.fields.categorie;
-      console.log(JSON.stringify(entry.fields.categorie));
+//  // promotion
+//     client
+//   .getEntries({
+//     content_type: 'voyages',
+//   })
+//   .then(function (entries) {
+//     entries.items.forEach(function (entry) {
+//       var category = entry.fields.categorie;
+//       console.log(JSON.stringify(entry.fields.categorie));
     
-      console.log(entry.fields)
-      var title = entry.fields.title;
-      var etoile = entry.fields.etoile;
-      var prixAvecPromos = entry.fields.prixAvecPromos;
-      var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
+//       console.log(entry.fields)
+//       var id = entry.fields.id;
+//     //   var title = entry.fields.title;
+//     //   var etoile = entry.fields.etoile;
+//     //   var prixAvecPromos = entry.fields.prixAvecPromos;
+//     //   var image = entry.fields.image.fields.file.url;
+//     //   console.log(etoile)
 
-      // // Promotion
-      // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/>'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+//       // // Promotion
+//       // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/>'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
-      // Btn Promotion
-      jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">'+category+'</button></a>');
-      // return documentToHtmlString( description);
-    });
-  });
+//       // Btn Promotion
+//       jQuery('#promotion-btn').append('<a href="details.html?id='+id+'"><button class="promo">'+category+'</button></a>');
+//       // return documentToHtmlString( description);
+//     });
+//   });
 
 
     </script>
