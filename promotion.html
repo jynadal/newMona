@@ -212,7 +212,7 @@ client
     'fields.categorie': 'promotion',
   })
   .then(function (entries) {
-    entries.items.slice(4).forEach(function (entry) {
+    entries.items.forEach(function (entry) {
       var category = entry.fields.categorie;
       console.log(JSON.stringify(entry.fields.categorie));
     
@@ -224,7 +224,6 @@ client
       var promotion = entry.fields.promotion;
       var prixAvecPromos = entry.fields.prixAvecPromos;
       var image = entry.fields.image.fields.file.url;
-      console.log(etoile)
 
     promo = prixAvant ? '<s class="old-price">'+prixAvant +' € </s>': promotion;
 
@@ -232,34 +231,6 @@ client
       jQuery('#promotion').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+'<p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
     });
   });
-
-//  // promotion
-//     client
-//   .getEntries({
-//     content_type: 'voyages',
-//   })
-//   .then(function (entries) {
-//     entries.items.forEach(function (entry) {
-//       var category = entry.fields.categorie;
-//       console.log(JSON.stringify(entry.fields.categorie));
-    
-//       console.log(entry.fields)
-//       var id = entry.fields.id;
-//     //   var title = entry.fields.title;
-//     //   var etoile = entry.fields.etoile;
-//     //   var prixAvecPromos = entry.fields.prixAvecPromos;
-//     //   var image = entry.fields.image.fields.file.url;
-//     //   console.log(etoile)
-
-//       // // Promotion
-//       // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/>'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
-      
-//       // Btn Promotion
-//       jQuery('#promotion-btn').append('<a href="details.html?id='+id+'"><button class="promo">'+category+'</button></a>');
-//       // return documentToHtmlString( description);
-//     });
-//   });
-
 
     </script>
   </body>

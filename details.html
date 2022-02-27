@@ -101,7 +101,7 @@
           <div  id="detail" class="detail-container">
 
             <div id="h1">
-            <!-- <h1 >{titleOffre}</h1> -->
+            
             </div>
 
             <div class="content">
@@ -154,34 +154,14 @@
               </div>
 
               <div id="description">
-                <!-- <p class="descrip">Description</p>
-                <h3>Hôtel Stariberostar Mehari</h3>
-                <h4>Tunisie - Djerba</h4>
-                <br />
-                <p class="contenu">Djerba vous promet un séjour synonyme de douceur, de dépaysement et de tranquillité. Houmt Souk, la capitale administrative de l'île vous charmera par son pittoresque. Le souk, formé autour d'étroites ruelles bordées d'échoppes très animées, dispose d'un grand choix de tissus, tapis, bijoux...
-                  A quelques kilomètres de Houmt Souk, sur la côte nord-est de l'île, commencent les plages de sable, qui s'étendent, sans interruption, jusqu'à Aghir, au sud-est.
-                  Djerba constitue une véritable oasis flottante recouverte de centaine de milliers de palmiers et d'oliviers aux troncs séculaires.
-                  Le tourisme est au premier rang dans l'économie de l'île, toutefois la riche infrastructure hôtelière a parfaitement su s'intégrer à l'environnement et aux paysages djerbiens.</p>
-                <p class="categorie">Catégorie</p>
-                <p class="avantages">Avantage</p> -->
+            
               </div>
             </div>  
 
           </div>
        
         <div id="promos" class="price-promo">
-          <!-- <div class="reduction">
-            <p>- 50%</p>
-            <s>518 €</s>
-          </div>
-           <div class="price-resa">
-            <p class="price">259€</p>
-            <a href="https://www.monagence.com/hotel-blue-sea-le-printemps-gueliz/372494/LYS-2022-03#disponibilities">
-              <div class="resa">
-                <p>Voir les disponibilités </p>
-              </div>
-            </a>
-          </div> -->
+        
         </div>
 
         <section class="infos"> 
@@ -350,7 +330,10 @@ client
     //jQuery('#slider').append('<div class="slides"><div class="img__slider" ><img src='+slider1+' alt="slider"/></div> <div class="img__slider ><img src='+slider2+' alt="slider"/></div> <div class="img__slider ><img src='+slider3+' alt="slider"/></div> <div class="img__slider ><img src='+slider4+' alt="slider"/></div></div>');
     jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
     // <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>
-    jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+'</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>');
+    prixAvant ? jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+' €</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+' €</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
+     : 
+    jQuery('#promos').append('<div class="reduction"><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
+    ;
 //       // return documentToHtmlString( description);
     });
   });
