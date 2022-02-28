@@ -46,7 +46,7 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
-                  
+                   style="fill: white; transform: ; msfilter: "
                 >
                   <path
                     d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
@@ -60,6 +60,7 @@
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
+                   style="fill: white; transform: ; msfilter: "
                   
                 >
                   <path
@@ -135,28 +136,31 @@
                     transform: translateX(0px);
                     }
                 }
-            </style> -->
+                </style> -->
+            <div id="image" class="image"></div>
 
-              <div id="slider" class="slider">
-                <!-- <div class="slides"> -->
-                    <!-- <img src="images/voyage-circuit-combines.jpg " alt="slider1" class="img__slider active"/>
+              <!-- <div id="slider" class="slider"> -->
+                <!-- <div class="slides"> 
+                    <img src="{+slider1+}" alt="slider1" class="img__slider active"/>
                     <img src="images/vacances-en-famille.jpg " alt="slider2" class="img__slider"/>
-                    <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/> -->
-                    <!-- <div class="suivant">
+                    <img src="images/promotion-de-voyages.jpg " alt="slider3" class="img__slider"/>
+                    <div class="suivant">
                     <i class="fa-solid fa-circle-chevron-right"></i>
-                    <i class="fa-solid fa-angle-right"></i> -->
-                    <!-- </div>
+                    <i class="fa-solid fa-angle-right"></i>
+                    </div>
                     <div class="precedent">
                     <i class="fa-solid fa-circle-chevron-left"></i>
                     <i class="fa-solid fa-angle-left"></i>
-                    </div> -->
-                <!-- </div> -->
-              </div>
+                    </div>
+                </div> -->
+              <!-- </div> -->
 
               <div id="description">
             
               </div>
             </div>  
+            <div id="galerie">
+            </div>
 
           </div>
        
@@ -246,10 +250,7 @@
       category=url.searchParams.get("cat")
       entry_id=url.searchParams.get("id")
       console.log(category);
-
-
-
-        
+ 
 
     // Contentful
     var client = contentful.createClient({
@@ -296,13 +297,13 @@ client
       console.log(slider1)
        console.log(slider4)
 
-        function convertToSlug(Text) {
-        return Text
-            .toLowerCase()
-            .replace(/ /g,'_')
-            .replace(/[^\w-]+/g,'')
-            ;
-      }
+    //     function convertToSlug(Text) {
+    //     return Text
+    //         .toLowerCase()
+    //         .replace(/ /g,'_')
+    //         .replace(/[^\w-]+/g,'')
+    //         ;
+    //   }
 
 //       // function getParameterByName(nama) {
 //       //   name = name.replace(/[[]/, [).replace(/[]]/, ]);
@@ -326,13 +327,16 @@ client
     
     jQuery('#h1').append('<h1 class="h1">'+title+'</h1>');
     //jQuery('#slider').append('<img src='+slider1+' alt="slider"/><div class="img__slider ><img src='+slider2+' alt="slider"/><img src='+slider3+' alt="slider"/><img src='+slider4+' alt="slider"/>');
-    jQuery('#slider').append('<img src='+slider1+' alt="slider" class="img__slider active" /> <img src='+slider2+' alt="slider"  class="img__slider" /><img src='+slider3+' alt="slider" class="img__slider"/><img src='+slider4+' alt="slider" class="img__slider"/> <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>');
+   // slider1 ? jQuery('#slider').append('<img src='+slider1+' alt="slider" class="img__slider active" /> <img src='+slider2+' alt="slider"  class="img__slider" /><img src='+slider3+' alt="slider" class="img__slider"/><img src='+slider4+' alt="slider" class="img__slider"/> <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>'):
+    jQuery('#image').append('<img src='+slider1+' alt="slider" class="img__slider" />');
+
+    jQuery('#galerie').append('<img src='+slider1+' alt="slider" class="img__slider active" /> <img src='+slider2+' alt="slider"  class="img__slider" /><img src='+slider3+' alt="slider" class="img__slider"/><img src='+slider4+' alt="slider" class="img__slider"/>')
     //jQuery('#slider').append('<div class="slides"><div class="img__slider" ><img src='+slider1+' alt="slider"/></div> <div class="img__slider ><img src='+slider2+' alt="slider"/></div> <div class="img__slider ><img src='+slider3+' alt="slider"/></div> <div class="img__slider ><img src='+slider4+' alt="slider"/></div></div>');
     jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
     // <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>
     prixAvant ? jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+' €</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+' €</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
      : 
-    jQuery('#promos').append('<div class="reduction"><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
+    jQuery('#promos').append('<div class="reduction"><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'€</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
     ;
 //       // return documentToHtmlString( description);
     });

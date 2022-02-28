@@ -21,7 +21,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   display: block;
-  width: 100% !important;
+  width: 100vw !important;
 }
 a {
   text-decoration: none;
@@ -66,6 +66,7 @@ header {
   height: 100%;
   display: flex;
   align-items: center;
+  color:#fff
 }
 .nav-icons svg:last-child {
   margin-left: 1rem;
@@ -531,7 +532,7 @@ footer {
   color: var(--black);
 }
 .detail-container {
-  width:90%;
+  width:100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -543,12 +544,32 @@ footer {
   margin-bottom: 20px;
 }
 .content {
- width: 100%;
+ width: 100vw;
  display: flex;
- justify-content: space-around;
+ flex-direction: column;
+ justify-content: center;
  align-items: center;
- margin: 15px 50px;
-}  *
+ margin: 15px 5px;
+}
+.image img{
+max-width: 500px
+}
+/* #slider {
+
+height: 50vh;
+position: relative;
+}
+#slider img {
+  width: 100%;
+  height: 100%; */
+  /* object-fit:contain; */
+  /* position: absolute; */
+  /* top: 0;
+  /* margin: 15px 15px;
+  opacity: 0;
+  transition: opacity .8s;
+}
+ /* *
 .slider {
 
 height: 50vh;
@@ -559,8 +580,8 @@ position: relative;
   height: 100%;
   object-fit:contain;
   position: absolute;
-  /* top: 0; */
-  /* margin: 15px 15px; */
+  /* top: 0;
+  /* margin: 15px 15px;
   opacity: 0;
   transition: opacity .8s;
 }
@@ -574,7 +595,7 @@ color:#fff;
 font-size: 3rem;
 position: absolute;
 top: 50%;
-/* left:25px;  */
+
 transform: translate(-50%);
 cursor:pointer;
 }
@@ -583,9 +604,9 @@ right:1rem
 }
 .precedent {
 left:3rem
-}
-.description {
-  margin: 20px 20px;
+} */
+#description {
+  margin: 30px 30px;
 }
 .descrip {
   font-size: large;
@@ -637,16 +658,34 @@ left:3rem
   list-style: none;
   text-decoration: none;
 }
+#galerie {
+display:none;
+}
 
 /* Detail container and section */
 @media screen and (min-width: 800px) {
+.detail-container {
+  width:100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
   .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
     color: red;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin:10px 15px;
   }
+  #description{
+  margin: 10px 15px}
   /* 2x 1fr */
   .price-promo {
     display: grid;
@@ -678,4 +717,20 @@ left:3rem
     margin-left: 250px;
     margin-bottom: 50px;
   }
+
+  #galerie {
+     display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    margin-bottom: 100px;
+
+    height: 90px;
+    display:flex;
+    flex-direction: row;
+  }
+  #galerie img{
+  width: 300px;
+  height: 200px;
+  }
+  
 }
