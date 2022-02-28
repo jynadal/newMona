@@ -233,7 +233,8 @@ main {
   width: 100vw;
 }
 .hero-container img {
-  width: 1700px;
+  max-width: 1500px;
+  width:100vw;
   height: 200px;
   z-index: 10;
 }

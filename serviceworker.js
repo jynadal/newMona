@@ -1,5 +1,5 @@
-var CACHE_NAME = "mon_agence_v4";
-var urlsCache = ["/", "/index.html", "/styles.css", "/main.js"];
+var CACHE_NAME = "mon_agence_v5";
+var urlsCache = ["/", "/index.html",  "/offline.html", "/styles.css", "/main.js"];
 
 self.addEventListener("install", function (e) {
   console.log("Install service worker!");

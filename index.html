@@ -34,12 +34,12 @@
 
     <title>Mon Agence</title>
     <link rel="manifest" href="./manifest.json" crossorigin= "use-credentials">
-    <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon" >
+    <link rel="apple-touch-icon" href="images/apple-touch-icon" >
     <meta name="theme-color" content="#ff4655">
     <!-- Script -->
        <!-- <script src="./main.js"></script> -->
-       <script src="./sw.js"></script>
-    <!-- <script src="./serviceworker.js"></script> -->
+       <!-- <script src="./sw.js"></script> -->
+    <script src="./serviceworker.js"></script>
     <!-- <script>
 
       window.addEventListener('load', ()=> {
@@ -287,6 +287,7 @@ client
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+           var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
@@ -299,7 +300,8 @@ client
 
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/48/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+      jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+      //jQuery('#flash_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'<img class="star" src="https://img.icons8.com/fluency/48/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
@@ -319,6 +321,7 @@ client
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+           var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
@@ -332,8 +335,8 @@ client
 
    
       // All include
-      jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+' <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
-      
+      jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+      //jQuery('#all_inclusive_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+' <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       // return documentToHtmlString( description);
     });
   });
@@ -352,6 +355,7 @@ client
       console.log(JSON.stringify(entry.fields.categorie));
     
       console.log(entry.fields)
+      var id = entry.fields.id;
       var title = entry.fields.title;
       var etoile = entry.fields.etoile;
       var prixAvecPromos = entry.fields.prixAvecPromos;
@@ -364,7 +368,8 @@ client
      promo = prixAvant ? '<s class="priceAvant">'+prixAvant +' € </s>': promotion;
 
       // Promotion
-      jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+      jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+     // jQuery('#promotion_container').append('<div class="card"><div class="travelList"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+' <p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
       
     });
   });
