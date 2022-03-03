@@ -1,10 +1,21 @@
-var CACHE_NAME = "mon_agence_v3";
+var CACHE_NAME = "mon_agence_v4";
 var urlsCache = [
   "/",
   "/index.html",
   "/offline.html",
   "/styles.css",
   "/main.js",
+  '/images/logoMonAgenceMb.png',
+  '/images/logo_monagence.png',
+  '/images/voyages/beach.jpg',
+
+
+  '/js/app.js',
+  '/js/feed.js',
+  '/js/promise.js',
+  '/js/fetch.js',
+
+
 ];
 
 self.addEventListener("install", function (e) {
