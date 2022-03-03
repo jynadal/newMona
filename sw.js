@@ -1,4 +1,4 @@
-var CACHE_NAME = "mon_agence_v4";
+var CACHE_NAME = "mon_agence_v5";
 var urlsCache = [
   "/",
   "/index.html",
