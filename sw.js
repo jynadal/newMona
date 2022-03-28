@@ -14,8 +14,6 @@ var urlsCache = [
   '/js/feed.js',
   '/js/promise.js',
   '/js/fetch.js',
-
-
 ];
 
 self.addEventListener("install", function (e) {

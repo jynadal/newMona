@@ -1,13 +1,13 @@
 {
-  "name": "Mon Agence, Ne rêvez plus, voyagez!",
-  "short_name": "Mon Agence",
+  "name": "Monagence. Ne rêvez plus, voyagez!",
+  "short_name": "Monagence",
   "start_url": "./?utm_source=web_app_manifest",
   "description": "Ne rêvez plus, voyagez avec votre agence de voyage.",
   "lang": "fr",
-  "background_color": "#4d4d4d",
+  "background_color": "#fff",
   "theme_color": "#ff4655",
   "display": "standalone",
-  "icon": "images/icon.png",
+  "icon": "images/android-chrome-512x512.png",
   "icons": [
     {
       "src": "images/android-chrome-192x192.png",

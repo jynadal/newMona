@@ -4,6 +4,8 @@
   --primary: #ff4655;
   --white: #fff;
   --black: grey;
+  --darkBlue: #06526E;
+  --blue: #007CB3;
   --black2: #222;
   --grey1: lightgrey;
   /* #dad8d8; */
@@ -33,7 +35,7 @@ a {
 
 /* navigation styles */
 header {
-  background-color: var(--grey2); /*var(--primary) grey1 =>2;*/
+  background-color: var(--primary); /*var(--primary) grey1 =>2;*/
   text-align: center;
   position: fixed;
   z-index: 500;
@@ -99,7 +101,7 @@ nav {
   /* text-align: center; */
   top: 100%;
   right: 0;
-  background-color: var(--grey2); /*var(--primary) grey1=>2;*/
+  background-color: var(--primary); /*var(--primary) grey1=>2;*/
   width: 40%;
   height: 12rem;
   transform: scale(1, 0);
@@ -108,10 +110,11 @@ nav {
   z-index: 550;
 }
 nav ul {
-  margin: 0;
+  margin: 10px;
+  margin-left: 16px;
   padding: 0;
   list-style: none;
-  text-align: end;
+  text-align: start;
 }
 nav li {
   margin-bottom: 1em;
@@ -122,12 +125,17 @@ nav a {
   text-decoration: none;
   font-size: 0.8rem;
   text-transform: uppercase;
+  font-weight: bold;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
 }
 
 nav a:hover {
-  color: #000;
+  color: var(--blue);
+  /* text-decoration: underline;
+  text-decoration-thickness: 4px;
+  color:#fff;
+  padding-bottom: 1rem; */
 }
 .nav-toggle:checked ~ nav {
   transform: scale(1, 1);
@@ -171,6 +179,10 @@ nav a:hover {
     opacity: 1;
     position: relative;
     font-size: 1.2rem;
+    font-weight: normal;
+     /* text-decoration: none;
+  text-decoration-thickness: none;
+  color:#fff; */
   }
 
   /* nav a::before {
@@ -242,6 +254,9 @@ main {
   /* border-radius: 3%; */
 /* margin: 0 auto; */
 /* } */
+
+/* END HERO */
+
 .h2 {
   max-width: 900px;
   text-align: center;
@@ -255,12 +270,13 @@ main {
   justify-content: center;
   align-items: center;
   margin: 2rem 1rem;
-  width: 150px;
+  /* width: 150px; */
+   width: 100vw;
 }
 .card img,
 .card2 img {
-  width: 150px;
-  height: 90px;
+  width: 100vw;
+  height: 200px;
   /* border-radius: 6% 6% 0 0; */
 }
 .card-layout,
@@ -274,14 +290,14 @@ main {
 }
 .card-layout,
 .card2-layout {
-  flex: 1 1 10em;
+  flex: 1 10em;
 }
 
 .travelList {
   background-color: var(--grey2); /* grey1 =>2;*/
   color: var(--white) !important;
   width: 100%;
-  height: 270px;
+  height: 350px;
   text-align: center;
 }
 .travelList h5 {
@@ -291,7 +307,7 @@ main {
 }
 h2 {
   font-weight: bold;
-  color: var(--black);
+  color: var(--darkBlue);
 }
 .h2 p {
   font-size: x-small;
@@ -324,9 +340,18 @@ font-weight: bold;
   /* align-items: flex-end; */
 /* } */
 .voir_plus {
-  display: flex;
+  /* display: inline; */
   align-items: center;
   justify-content: center;
+
+  min-width: 105px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 50px 50px;
+
+  font-weight: 10rem;
   color: #4d4d4d;
 }
 .les-produits {
@@ -367,13 +392,16 @@ margin: 30px 0;
     justify-content: center;
     align-items: center;
     margin: 3rem 1rem;
-    width: 200px;
+    /* width: 200px; */
+     width: 500px;
   }
 
   .card2 img,
   .card img {
-    width: 200px;
-    height: 200px;
+    /* width: 300px;
+    height: 200px; */
+    width: 500px;
+    height: 300px;
   }
   .card2-layout {
     display: flex;
@@ -390,14 +418,14 @@ margin: 30px 0;
   } */
 
   .travelList {
-    height: 370px;
+    height: 450px;
     text-align: center;
     margin-top: -5px;
   }
 
   h2 {
     font-weight: bolder;
-    color: var(--black);
+    color: var(--darkBlue);
   }
   .h2 p {
     font-size: smaller;
@@ -413,7 +441,7 @@ margin: 30px 0;
 }
 
 .promotion-btn {
-  display: flex;
+  display: inline-block;
   justify-content: center;
   margin-top: 2rem;
   cursor: pointer;
@@ -528,8 +556,10 @@ footer {
 /* Detail container and section */
 .detail-container h1,
 .detail-container h3,
-.detail-container h4,
-.detail-container p {
+.detail-container h4{
+  color: var(--darkBlue);
+}
+.detail-container p{
   color: var(--black);
 }
 .detail-container {
@@ -643,10 +673,14 @@ left:3rem
   flex-direction: row;
   justify-content: space-around;
 }
-.price {
+.price .detail {
   font-size: 2.5rem;
   /* font-weight: bold;
   margin-left: 10px; */
+  color: var(--primary);
+}
+.price span{
+  font-size: 1rem;
 }
 .resa {
   border: 1px solid var(--primary);
