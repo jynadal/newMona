@@ -340,19 +340,19 @@ font-weight: bold;
   /* align-items: flex-end; */
 /* } */
 .voir_plus {
-  /* display: inline; */
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 105px;
-  margin: 0.5rem;
+  max-width: 315px;
+  margin: 0.5rem auto;
   padding: 0.5rem;
   background-color: var(--primary);
   border: 2px solid var(--primary);
   border-radius: 50px 50px;
 
   font-weight: 10rem;
-  color: #4d4d4d;
+  color: #fff;
+  font-weight: bold;
 }
 .les-produits {
 margin: 20px 10px;
@@ -525,7 +525,7 @@ footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 15px 50px;
+  margin: 15px 30px;
   max-width: 1200px;
   font-size: small;
 }
@@ -542,7 +542,7 @@ footer {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 50px 150px;
+    margin: 50px 100px;
     max-width: 1200px;
   }
   .footer-container ul a img {
