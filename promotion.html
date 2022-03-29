@@ -31,13 +31,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
-    <title>Mon Agence</title>
+    <title>Monagence</title>
   </head>
   <body>
     <header>
       <div class="icons">
           <div class="nav-icons">
-                <a href="/#/contact">
+                <a href="https://www.monagence.com/services/mon-compte">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -51,7 +51,7 @@
                 </svg>
               </a>
 
-              <a href="/#/phone"></a>
+              <a href="tel://+173323323"></a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -120,7 +120,7 @@
         <section class="promotion-btn">
             <a href="/flash.html"><button class="promo">Ventes Flash</button></a>
             <a href="/promotion.html"><button class="promo">Promotion</button></a>
-            <a href="/all_include.html"><button class="promo"> ALL IN </button></a>
+            <a href="/all_include.html"><button class="promo"> ALL INCLUSIVE </button></a>
             <a href="/last_minute.html"><button class="promo">Dernières Minutes</button></a>            
         </section>
     </main>
@@ -180,13 +180,10 @@
 
           <div class="footer-copyright">
             <p>
-              La vente de voyages sous la marque Monagence.com est assurée par
-              SARL RF Distribution au capital de 100 000 euros. Garantie
-              financière APST IM094120019 / R.C GENERALI N° AL813861 / LI
-              094090006 : 15 av. Carnot 75017 Paris - Agence de voyage agréée
-              IATA - Siège : 2 rue du Nouveau Bercy 94220 Charenton-le-Pont
-              <br /> Hébergement du site : CLARANET 68 rue du Faubourg Saint
-              Honoré - 75008 PARIS - ©2021 Monagence.com tous droits réservés
+             Monagence.com SARL RF Distribution au capital de 100 000 euros- Agence de voyage agréée IATA  <br >
+              Garantie financière APST IM094120019 / R.C GENERALI N° AL813861 / LI094090006 <br >
+              Siège : 2 rue du Nouveau Bercy 94220 Charenton-le-Pont <br >
+             ©2021 Monagence.com tous droits réservés
             </p>
           </div>
     </footer>
@@ -228,7 +225,7 @@ client
     promo = prixAvant ? '<s class="old-price">'+prixAvant +' € </s>': promotion;
 
       // jQuery('#flash_container').append('<div class="card"><h5>'+title+'</h5></div>');
-      jQuery('#promotion').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+'<p class="price">'+prixAvecPromos+' €</p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
+      jQuery('#promotion').append('<div class="card"><div class="travelList"><a href="details.html?id='+id+'"><img src='+image+' alt="flash"/><h5>'+title+'</h5><h5>'+etoile+'  <img class="star" src="https://img.icons8.com/fluency/20/000000/star.png"/></h5>'+promo+'<p class="price">'+prixAvecPromos+' € <span>TTC<span></p></div><div class="voir_offre"><p>Voir l\'offre</p></div></a></div>');
     });
   });
 

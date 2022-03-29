@@ -31,7 +31,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
-    <title>Mon Agence</title>
+    <title>Monagence</title>
     <link rel="manifest" href="manifest.json" crossorigin= "use-credentials">
     <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon" >
     <meta name="theme-color" content="#ff4655">
@@ -52,7 +52,7 @@
     <header>
       <div class="icons">
           <div class="nav-icons">
-                <a href="/#/contact">
+                <a href="https://www.monagence.com/services/mon-compte">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -66,7 +66,7 @@
                 </svg>
               </a>
 
-              <a href="/#phone"></a>
+              <a href="tel://+173323323"></a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -176,27 +176,24 @@
 
           <div class="footer-copyright">
           <p>
-                <!-- La vente de voyages sous la marque Monagence.com est assurée par
-              SARL  -->
-              RF Distribution au capital de 100 000 euros. Garantie
-              financière APST IM094120019 / R.C GENERALI N° AL813861 / LI
-              094090006 : Siège : 2 rue du Nouveau Bercy 94220 Charenton-le-Pont
-              <!-- <br /> Hébergement du site : CLARANET 68 rue du Faubourg Saint
-              Honoré - 75008 PARIS - ©2021 Monagence.com tous droits réservés -->
+                 Monagence.com SARL RF Distribution au capital de 100 000 euros- Agence de voyage agréée IATA  <br >
+              Garantie financière APST IM094120019 / R.C GENERALI N° AL813861 / LI094090006 <br >
+              Siège : 2 rue du Nouveau Bercy 94220 Charenton-le-Pont <br >
+             ©2021 Monagence.com tous droits réservés
             </p>
           </div>
     </footer>
      <!-- Script -->
      <script>
-if ("serviceWorker" in navigator) {
-  window
-    .addEventListener("load", async () => {
-      await navigator.serviceWorker.register("/sw.js").then(swReg => {
-          console.log("Worker Registered!")
-      }).catch(error => {
-          console.log("There was an error", error)
-      });
-    })
+    if ("serviceWorker" in navigator) {
+          window
+        .addEventListener("load", async () => {
+        await navigator.serviceWorker.register("/sw.js").then(swReg => {
+            console.log("Worker Registered!")
+        }).catch(error => {
+            console.log("There was an error", error)
+        });
+        })
   }
 
 
@@ -220,7 +217,7 @@ if ("serviceWorker" in navigator) {
 
    
       // All include
-      jQuery('#all_inclusive_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#all_inclusive_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' € <span>TTC<span></p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // return documentToHtmlString( description);
     });
@@ -245,7 +242,7 @@ if ("serviceWorker" in navigator) {
       console.log(etoile)
 
       // Promotion
-      jQuery('#promotion_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' €</p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
+      jQuery('#promotion_container').append('<div class="card"><a href="details.html?title='+convertToSlug(title)+'"><img src='+image+' alt="flash"/><div class="travelList"><h5>'+title+'</h5><h5>'+nbrEtoile(etoile)+'</h5><p class="price">'+prixAvecPromos+' € <span>TTC<span></p><p class="voir_offre">Voir l\'offre</p></div></a></div>');
       
       // Btn Promotion
       jQuery('#promotion-btn').append('<a href="details.html?title='+convertToSlug(title)+'"><button class="promo">Promotion</button></a>');
