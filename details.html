@@ -334,9 +334,9 @@ client
     //jQuery('#slider').append('<div class="slides"><div class="img__slider" ><img src='+slider1+' alt="slider"/></div> <div class="img__slider ><img src='+slider2+' alt="slider"/></div> <div class="img__slider ><img src='+slider3+' alt="slider"/></div> <div class="img__slider ><img src='+slider4+' alt="slider"/></div></div>');
     jQuery('#description').append('<p class="descrip">Description</p><h3>'+title+'</h3><h4>'+titre2+'</h4><br /><p class="contenu">'+description+'</p><p class="categorie">'+category+'</p><p class="avantages">'+avantage1+'</p>');
     // <div class="suivant"><i class="fa-solid fa-circle-chevron-right"></i></div><div class="precedent"><i class="fa-solid fa-circle-chevron-left"></i></div>
-    prixAvant ? jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+' €</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price detail">'+prixAvecPromos+' € <span>TTC<span></p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
+    prixAvant ? jQuery('#promos').append('<div class="reduction"><s>'+prixAvant+' €</s><p>'+promotion+'</p></div><div class="price-resa"><p class="price detail">'+prixAvecPromos+'€ <span>TTC<span></p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
      : 
-    jQuery('#promos').append('<div class="reduction"><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'€</p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
+    jQuery('#promos').append('<div class="reduction"><p>'+promotion+'</p></div><div class="price-resa"><p class="price">'+prixAvecPromos+'€ <span>TTC<span></p><a href="'+disponibilite+'"><div class="resa"><p>Voir les disponibilités</p></div></a></div>')
     ;
 //       // return documentToHtmlString( description);
     });

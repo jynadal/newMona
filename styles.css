@@ -673,10 +673,13 @@ left:3rem
   flex-direction: row;
   justify-content: space-around;
 }
-.price .detail {
+.price {
   font-size: 2.5rem;
   /* font-weight: bold;
   margin-left: 10px; */
+  color: var(--primary);
+}
+.detail {
   color: var(--primary);
 }
 .price span{
