@@ -1,7 +1,7 @@
 {
   "name": "Monagence. Ne rêvez plus, voyagez!",
   "short_name": "Monagence",
-  "start_url": "./?utm_source=web_app_manifest",
+  "start_url": "/",
   "description": "Ne rêvez plus, voyagez avec votre agence de voyage.",
   "lang": "fr",
   "background_color": "#fff",
