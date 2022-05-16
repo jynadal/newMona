@@ -1,5 +1,5 @@
-var CACHE_STATIC_NAME = 'static-v17';
-var CACHE_DYNAMIC_NAME = 'dynamic-v3';
+var CACHE_STATIC_NAME = 'static-v18';
+var CACHE_DYNAMIC_NAME = 'dynamic-v4';
 var STATIC_FILES = [
   '/',
   '/index.html',
@@ -7,8 +7,8 @@ var STATIC_FILES = [
   '/images/logoMonAgenceMb.png',
   '/images/logo_monagence.png',
   '/images/voyages/beach.jpg',
-  '/images/apple-icons/apple-touch-icon-152x152.png',
-  '/images/apple-touch-icon.png',
+  '/images/apple-icons/apple-touch-icon-white-152x152.png',
+  '/images/apple-touch-icon-white.png',
 
 
   '/js/app.js',
