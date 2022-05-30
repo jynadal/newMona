@@ -1,5 +1,5 @@
-var CACHE_STATIC_NAME = 'static-v19';
-var CACHE_DYNAMIC_NAME = 'dynamic-v5';
+var CACHE_STATIC_NAME = 'static-v20';
+var CACHE_DYNAMIC_NAME = 'dynamic-v6';
 var STATIC_FILES = [
   '/',
   '/index.html',
